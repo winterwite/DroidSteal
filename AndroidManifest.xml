@@ -15,7 +15,6 @@
 		android:allowClearUserData="true"
 		android:allowBackup="false">
 		<activity
-			android:screenOrientation="landscape"
 			android:configChanges="orientation|keyboardHidden"
 			android:name=".activities.ListenActivity"
 			android:launchMode="singleInstance"
@@ -27,7 +26,6 @@
 			</intent-filter>
 		</activity>
 		<activity
-		    android:screenOrientation="landscape" 
 			android:label="@string/app_name"
 			android:configChanges="orientation|keyboardHidden"
 			android:name=".activities.HijackActivity"
@@ -38,7 +36,6 @@
 			</intent-filter>
 		</activity>
 		<activity
-		    android:screenOrientation="landscape" 
 			android:label="@string/app_name"
 			android:configChanges="orientation|keyboardHidden"
 			android:name=".activities.UpdateChecker"
