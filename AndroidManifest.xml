@@ -7,6 +7,7 @@
 	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 	<uses-permission android:name="android.permission.WAKE_LOCK" />
 	<uses-permission android:name="com.google.android.gm.permission.WRITE_GMAIL"/>
+	<uses-permission android:name="android.permission.ACCESS_SUPERUSER"/>
 	<application
 		android:icon="@drawable/launcherico"
 		android:label="DroidSteal"
