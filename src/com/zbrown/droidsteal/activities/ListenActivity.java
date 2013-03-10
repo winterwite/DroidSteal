@@ -30,6 +30,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import android.app.ActivityManager;
 import android.app.ActivityManager.RunningServiceInfo;
@@ -698,10 +699,10 @@ public class ListenActivity extends SherlockActivity implements OnClickListener,
 		if (wifiInfo == null) {
 			networkEncryptionWPA = false;
 			networkName = "- None -";
-			tnetworkName.setText(getString(R.string.label_networkname_pref) + networkName.toUpperCase());
+			tnetworkName.setText(getString(R.string.label_networkname_pref) + networkName.toUpperCase(Locale.getDefault()));
 		} else {
 			networkName = wifiInfo.getSSID() != null ? " " + wifiInfo.getSSID() : "";
-			tnetworkName.setText(getString(R.string.label_networkname_pref) + networkName.toUpperCase());
+			tnetworkName.setText(getString(R.string.label_networkname_pref) + networkName.toUpperCase(Locale.getDefault()));
 		}
 		TextView tspoof = (TextView) findViewById(R.id.spoofaddress);
 		if (isSpoofing()) {
