@@ -20,7 +20,7 @@ Things to remember:
 
 Downloads
 =========
-All builds are hosted here: http://zbrown.dyndns.org/page/droidsteal
+All builds are hosted here: http://goo.gl/Iq7JZ
 
 Contact Me
 ==========
