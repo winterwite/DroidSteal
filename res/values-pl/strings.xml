@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
-    <string name="app_name">DroidSheep</string>
-    <!-- string name="license">Spolszczył Maciej dla mobilevice.pl\nDarmowe gry i aplikacje java/android po polsku\n\n\nDroidSheep nie daje Ci żadnej gwarancji.\n\nUżywasz tej aplikacji na własne ryzyko.\nTwórca aplikacji nie odpowiada ze ewentualne szkody wyrządzone przez ten program.\nObowiązkiem użytkownika jest sprawdzenie czy w jego kraju nie jest zabronione używanie tego typu oprogramowania.\n</string> -->
-    <string name="unrooted">TWÓJ TELEFON NIE ZOSTAŁ ZROOTOWANY\n\nDroidSheep działa tylko z uprawnieniami superusera. Jeśli więc Twój telefon nie jest zrootowany i nie możesz z niego korzystać, nie proś o wsparcie!</string>
+    <string name="app_name">DroidSteal</string>
+    <!-- string name="license">Spolszczył Maciej dla mobilevice.pl\nDarmowe gry i aplikacje java/android po polsku\n\n\nDroidSteal nie daje Ci żadnej gwarancji.\n\nUżywasz tej aplikacji na własne ryzyko.\nTwórca aplikacji nie odpowiada ze ewentualne szkody wyrządzone przez ten program.\nObowiązkiem użytkownika jest sprawdzenie czy w jego kraju nie jest zabronione używanie tego typu oprogramowania.\n</string> -->
+    <string name="unrooted">TWÓJ TELEFON NIE ZOSTAŁ ZROOTOWANY\n\nDroidSteal działa tylko z uprawnieniami superusera. Jeśli więc Twój telefon nie jest zrootowany i nie możesz z niego korzystać, nie proś o wsparcie!</string>
     <string name="accept">Rozumiem i akceptuję</string>
     <string name="button_stop">Stop</string>
     <string name="button_start">Start</string>
@@ -17,7 +17,7 @@
     <string name="label_status_connected">Status sieci: PODŁĄCZONY</string>
     <string name="label_status_disconnected">Status sieci: ROZŁĄCZONY</string>
     <string name="notification_title">Nowa sesja została przechwycona</string>
-    <string name="notification_text">Dotknij by otworzyć DroidSheep!</string>
+    <string name="notification_text">Dotknij by otworzyć DroidSteal!</string>
     <string name="toast_wifi_lost">Uracono lub zmieniono połączenie WiFi. Zatrzymano nasłuchiwanie!</string>
     <string name="toast_process_running_text">Proces już działa</string>
     <string name="menu_black_list">Dodaj host do czarnej listy</string>
@@ -41,7 +41,8 @@
     <string name="button_ok">Tak</string>
     <string name="button_abprt">Anuluj</string>
     <string name="accept_text">Musisz zaakceptować zasady, by móc korzystać z aplikacji!</string>
-    <string name="donatetext">Mam nadzieję, że spodobał Ci się ten program!\n\nDziała on na licencji open source, a więc nie czerpię z niego żadnych przychodów. Jeśli jednak chcialbyś wesprzeć mnie w udoskonalaniu DroidSheep, możesz przesłać mi dotację. Dzięki!</string>
+    <string name="donatetext">Mam nadzieję, że spodobał Ci się ten program!\n\nDziała on na licencji open source, a więc nie czerpię z niego żadnych przychodów. Jeśli jednak chcialbyś wesprzeć mnie w udoskonalaniu DroidSteal, możesz przesłać mi dotację. Dzięki!</string>
     <string name="donate_no">Nie jestem zainteresowany.</string>
     <string name="donate_yes">Tak, Twoja robota jest tego warta!</string>
+    <string name="menu_about">z</string>
 </resources>
