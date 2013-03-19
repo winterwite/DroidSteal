@@ -670,7 +670,7 @@ public class ListenActivity extends SherlockActivity implements OnClickListener,
 
 		if (listening && !spoofing) {
 			tstatus.setText(getString(R.string.label_running));
-			tstatus.setTextColor(Color.GREEN);
+			tstatus.setTextColor(Color.YELLOW);
 			tstatus.setTextSize(15);
 			pbrunning.setVisibility(View.VISIBLE);
 		} else if (listening && spoofing) {
@@ -680,9 +680,9 @@ public class ListenActivity extends SherlockActivity implements OnClickListener,
 			pbrunning.setVisibility(View.VISIBLE);
 		} else if (!listening && spoofing) {
 			tstatus.setText(getString(R.string.label_not_running_and_spoofing));
-			tstatus.setTextColor(Color.YELLOW);
+			tstatus.setTextColor(Color.RED); //This shouldn't occur usually
 			tstatus.setTextSize(15);
-			pbrunning.setVisibility(View.INVISIBLE);
+			pbrunning.setVisibility(View.VISIBLE);
 		} else {
 			tstatus.setText(getString(R.string.label_not_running));
 			tstatus.setTextColor(Color.YELLOW);
