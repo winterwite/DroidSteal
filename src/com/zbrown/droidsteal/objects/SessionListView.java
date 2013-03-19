@@ -1,5 +1,5 @@
 /*    	SessionListView.java is the UI element for displaying the cookies
-    	Copyright (C) 2011 Andreas Koch <koch.trier@gmail.com>
+    	Copyright (C) 2013 Zach Brown <Zbob75x@gmail.com>
     	
     	This software was supported by the University of Trier 
 

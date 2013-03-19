@@ -1,6 +1,6 @@
 /*
  * UpdateChecker.java check for latest updates
- * Copyright (C) 2012 Evozi <email@evozi.com>
+ * (C) 2013 Zach Brown <Zbob75x@gmail.com>
  * 
  * This software was supported by the University of Trier
  * 

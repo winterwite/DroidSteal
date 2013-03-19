@@ -1,7 +1,7 @@
 /*
  * The arpspoof package containts Software, initially developed by Robboe
- * Clemons, It has been used, changed and published in DroidSheep by Andreas
- * Koch according the GNU GPLv3
+ * Clemons, It has been used, changed and published in DroidSteal by Zach
+ * Brown according the GNU GPLv3
  */
 
 /*
