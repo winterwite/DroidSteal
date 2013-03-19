@@ -6,8 +6,8 @@
     <string name="accept">Rozumiem i akceptuję</string>
     <string name="button_stop">Stop</string>
     <string name="button_start">Start</string>
-    <string name="label_running">DZIAŁANIE...</string>
-    <string name="label_running_and_spoofing">DZIAŁANIE I WYKRADANIE...</string>
+    <string name="label_running">DZIAŁANIE&#8230;</string>
+    <string name="label_running_and_spoofing">DZIAŁANIE I WYKRADANIE&#8230;</string>
     <string name="label_not_running_and_spoofing">TYLKO WYKRADANIE</string>
     <string name="label_not_running">BEZCZYNNOŚĆ</string>
     <string name="label_wpa_network">WPA zdekodowane!</string>
