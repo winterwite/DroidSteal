@@ -32,6 +32,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
+import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.ActivityManager.RunningServiceInfo;
 import android.app.AlertDialog;
@@ -53,6 +54,8 @@ import android.util.Log;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.view.KeyEvent;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnCreateContextMenuListener;
@@ -66,10 +69,6 @@ import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.actionbarsherlock.app.SherlockActivity;
-import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuItem;
 
 import com.zbrown.droidsteal.R;
 import com.zbrown.droidsteal.auth.Auth;
@@ -85,7 +84,7 @@ import com.zbrown.droidsteal.objects.WifiChangeChecker;
 import com.zbrown.droidsteal.services.ArpspoofService;
 import com.zbrown.droidsteal.services.DroidSheepService;
 
-public class ListenActivity extends SherlockActivity implements OnClickListener, OnItemClickListener, OnItemLongClickListener,
+public class ListenActivity extends Activity implements OnClickListener, OnItemClickListener, OnItemLongClickListener,
 		OnCreateContextMenuListener, OnCheckedChangeListener, Constants {
 
 	private static final int MENU_ABOUT_ID = 5;

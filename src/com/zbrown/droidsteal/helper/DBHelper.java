@@ -2,14 +2,12 @@ package com.zbrown.droidsteal.helper;
 
 import java.util.HashMap;
 
-import com.actionbarsherlock.app.SherlockActivity;
-
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
-public class DBHelper extends SherlockActivity{
+public class DBHelper {
 
 	private static SQLiteDatabase droidsheepDB = null;
 	public static final String DROIDSHEEP_DBNAME = "droidsheep";
