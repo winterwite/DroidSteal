@@ -21,14 +21,3 @@ Things to remember:
 Downloads
 =========
 All builds are hosted here: http://goo.gl/Iq7JZ
-
-Contact Me
-==========
-If you're having an issue fill out a ticket! Do not report issues this way, you will be ignored!
-
-
-Twitter: Zbob750 (https://twitter.com/Zbob750)
-
-Reddit: Zbob750 (http://www.reddit.com/user/Zbob750/)
-
-Email: Zbob75x@gmail.com
