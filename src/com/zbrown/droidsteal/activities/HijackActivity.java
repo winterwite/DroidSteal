@@ -21,8 +21,6 @@
 
 package com.zbrown.droidsteal.activities;
 
-import org.apache.http.cookie.Cookie;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -32,19 +30,14 @@ import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.Window;
-import android.webkit.CookieManager;
-import android.webkit.CookieSyncManager;
-import android.webkit.WebChromeClient;
-import android.webkit.WebSettings;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
+import android.webkit.*;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import com.zbrown.droidsteal.R;
 import com.zbrown.droidsteal.auth.Auth;
 import com.zbrown.droidsteal.helper.Constants;
 import com.zbrown.droidsteal.objects.CookieWrapper;
+import org.apache.http.cookie.Cookie;
 
 
 public class HijackActivity extends Activity implements Constants {

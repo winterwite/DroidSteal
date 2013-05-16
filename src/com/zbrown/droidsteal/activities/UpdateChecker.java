@@ -21,18 +21,6 @@
 
 package com.zbrown.droidsteal.activities;
 
-import java.io.BufferedInputStream;
-import java.io.File;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.net.URLConnection;
-
-import org.apache.http.util.ByteArrayBuffer;
-
-import com.zbrown.droidsteal.R;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
@@ -43,6 +31,16 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Handler;
 import android.util.Log;
+import com.zbrown.droidsteal.R;
+import org.apache.http.util.ByteArrayBuffer;
+
+import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLConnection;
 
 public class UpdateChecker {
 
@@ -76,7 +74,7 @@ public class UpdateChecker {
 	 * 
 	 * @param c
 	 *            The activity to be used for displaying the messages
-	 * @param VERSION_URL
+	 * @param versionUrl
 	 *            The url of the file containing the version name
 	 * @param remoteApkUrl
 	 *            The url of the apk

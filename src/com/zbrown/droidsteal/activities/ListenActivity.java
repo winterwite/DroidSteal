@@ -21,24 +21,8 @@
 
 package com.zbrown.droidsteal.activities;
 
-import java.io.Serializable;
-import java.net.InetAddress;
-import java.net.NetworkInterface;
-import java.net.SocketException;
-import java.net.UnknownHostException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Date;
-import java.util.List;
-import java.util.Locale;
-
-import android.app.Activity;
-import android.app.ActivityManager;
+import android.app.*;
 import android.app.ActivityManager.RunningServiceInfo;
-import android.app.AlertDialog;
-import android.app.Notification;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -51,38 +35,29 @@ import android.os.Handler;
 import android.os.Message;
 import android.text.format.Formatter;
 import android.util.Log;
-import android.view.ContextMenu;
+import android.view.*;
 import android.view.ContextMenu.ContextMenuInfo;
-import android.view.KeyEvent;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnCreateContextMenuListener;
-import android.widget.AdapterView;
+import android.widget.*;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemLongClickListener;
-import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
-import android.widget.ProgressBar;
-import android.widget.TextView;
-import android.widget.Toast;
-
 import com.zbrown.droidsteal.R;
 import com.zbrown.droidsteal.auth.Auth;
 import com.zbrown.droidsteal.auth.AuthHelper;
-import com.zbrown.droidsteal.helper.Constants;
-import com.zbrown.droidsteal.helper.DBHelper;
-import com.zbrown.droidsteal.helper.DialogHelper;
-import com.zbrown.droidsteal.helper.MailHelper;
-import com.zbrown.droidsteal.helper.SetupHelper;
-import com.zbrown.droidsteal.helper.SystemHelper;
+import com.zbrown.droidsteal.helper.*;
 import com.zbrown.droidsteal.objects.SessionListView;
 import com.zbrown.droidsteal.objects.WifiChangeChecker;
 import com.zbrown.droidsteal.services.ArpspoofService;
 import com.zbrown.droidsteal.services.DroidSheepService;
+
+import java.io.Serializable;
+import java.net.InetAddress;
+import java.net.NetworkInterface;
+import java.net.SocketException;
+import java.net.UnknownHostException;
+import java.util.*;
 
 public class ListenActivity extends Activity implements OnClickListener, OnItemClickListener, OnItemLongClickListener,
 		OnCreateContextMenuListener, OnCheckedChangeListener, Constants {
