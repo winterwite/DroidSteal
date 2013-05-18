@@ -6,17 +6,15 @@ DroidSteal is a new client that runs on top of a modified version of the origina
 
 Things to remember:
 
-1. This is Alpha software, there may be bugs and other problems, fill out an Issue Ticket and wait for a response.
+1. This is constantly changing software, there may be bugs and other problems, fill out an Issue Ticket and wait for a response.
 
 2. This is for people to learn about security, networks, and android - It's not for use on networks you don't have permission to use it on.
 
 3. This is a constantly evolving project - the goals may change and so may the features.
 
-4. For obvious purposes this may never be released to the Play Store, I hope it will be, but no guarantees.
+4. This is open-source software, feel free to get involved! Contribute contribute contribute!
 
-5. This is open-source software, get involved and have fun! Contribute contribute contribute!
-
-6. Be Ethical
+5. Be Ethical
 
 Downloads
 =========
