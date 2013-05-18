@@ -236,8 +236,8 @@ public class UpdateChecker {
 				c.setDoOutput(true);
 				c.connect();
 
-				// lenghtOfFile is used for calculating download progress
-				int lenghtOfFile = c.getContentLength();
+				// lengthOfFile is used for calculating download progress
+				int lengthOfFile = c.getContentLength();
 
 				// this is where the file will be seen after the download
 				OutputStream out = context.openFileOutput(outFileName,
@@ -247,18 +247,18 @@ public class UpdateChecker {
 
 				// here's the download code
 				byte[] buffer = new byte[1024];
-				int readLenght = 0;
+				int readLength = 0;
 				long total = 0;
 				int lastProgress = 0;
 
-				while ((readLenght = in.read(buffer)) > 0) {
-					total += readLenght;
-					int cProgress = (int) ((total * 100) / lenghtOfFile);
+				while ((readLength = in.read(buffer)) > 0) {
+					total += readLength;
+					int cProgress = (int) ((total * 100) / lengthOfFile);
 					if (cProgress != lastProgress) {
-						publishProgress((int) ((total * 100) / lenghtOfFile));
+						publishProgress((int) ((total * 100) / lengthOfFile));
 						lastProgress = cProgress;
 					}
-					out.write(buffer, 0, readLenght);
+					out.write(buffer, 0, readLength);
 				}
 				out.flush();
 				out.close();
