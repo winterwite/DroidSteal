@@ -14,7 +14,7 @@
 		android:hardwareAccelerated="true"
 		android:largeHeap="true"
 		android:allowClearUserData="true"
-		android:allowBackup="false">
+		android:allowBackup="true">
 		<activity
 			android:configChanges="orientation|screenSize|keyboardHidden"
 			android:name=".activities.ListenActivity"
