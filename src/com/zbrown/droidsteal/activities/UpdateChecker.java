@@ -184,8 +184,8 @@ public class UpdateChecker {
 			final String s = new String(baf.toByteArray());
 
 			/* Get current Version Number */
-			Integer curVersion = context.getPackageManager().getPackageInfo(
-					context.getPackageName(), 0).versionCode;
+			String curVersion = context.getPackageManager().getPackageInfo(
+					context.getPackageName(), 0).versionName;
 			String newVersion = s;
 
 			Log.d(TAG, "Current version is: " + curVersion
