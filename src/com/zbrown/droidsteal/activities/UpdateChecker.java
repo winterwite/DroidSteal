@@ -204,7 +204,7 @@ public class UpdateChecker {
 				Log.v(TAG, "The software is updated to the latest version: "
 						+ newVersion);
 		} catch (Exception e) {
-          Crashlytics.logException(e);
+          //Crashlytics.logException(e);
 			e.printStackTrace();
 			// if(alertError==null || !alertError.isShowing())
 			// mHandler.post(showError);
@@ -269,7 +269,7 @@ public class UpdateChecker {
 				Log.d(TAG, "Saved file with name: " + outFileName + " | Size: "
 						+ total);
 			} catch (Exception e) {
-              Crashlytics.logException(e);
+              //Crashlytics.logException(e);
 				e.printStackTrace();
 				return 1;
 			}

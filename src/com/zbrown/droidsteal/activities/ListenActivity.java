@@ -722,6 +722,7 @@ public class ListenActivity extends Activity implements OnClickListener, OnItemC
 				.setPositiveButton(R.string.button_ok, new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface dialog, int id) {
 						ListenActivity.this.startDebug();
+                        throw new RuntimeException("DEBUG - Intended Behavior for Testing");
 					}
 				}).setNegativeButton(R.string.button_abprt, new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface dialog, int id) {
