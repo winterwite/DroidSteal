@@ -1,0 +1,116 @@
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="wrap_content"
+	android:layout_height="fill_parent"
+	android:padding="6dp"
+	android:orientation="vertical"
+    android:visibility="visible"
+    android:gravity="bottom|left|top">
+	<!-- <Button android:layout_width="fill_parent" android:id="@+id/bspoof" android:layout_height="wrap_content" android:enabled="true" android:text="start ARP spoofing"></Button> -->
+
+	<TextView
+		android:text="TEST"
+		android:id="@+id/networkname"
+		android:ellipsize="end"
+		android:lines="1"
+		android:textStyle="bold"
+		android:textSize="13dip"
+		android:textColor="#FFFFFF"
+		android:gravity="center_horizontal"
+		android:singleLine="true"
+		android:layout_width="269dp"
+		android:layout_height="wrap_content"
+        android:layout_gravity="bottom|left|right|top"/>
+	<TextView
+		android:text="TEST"
+		android:id="@+id/spoofaddress"
+		android:ellipsize="end"
+		android:textSize="13dip"
+		android:lines="1"
+		android:textStyle="bold"
+		android:textColor="#FFFFFF"
+		android:gravity="center_horizontal"
+		android:singleLine="true"
+		android:layout_width="269dp"
+		android:layout_height="25dp"
+        android:layout_gravity="bottom|left|right|top"/>
+	<com.zbrown.droidsteal.objects.SessionListView
+		android:layout_width="269dp"
+		android:layout_height="481dp"
+		android:layout_weight="1.0"
+		android:divider="#FFCC00"
+		android:id="@+id/sessionlist"
+        android:layout_gravity="bottom|left|right|top"
+        android:smoothScrollbar="true"
+        android:scrollingCache="false">
+	</com.zbrown.droidsteal.objects.SessionListView>
+
+    <TextView
+        android:text="TEST"
+        android:layout_weight=".50"
+        android:textStyle="bold"
+        android:id="@+id/status"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:textColor="#fff"
+        android:layout_width="269dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|left|top"/>
+
+    <LinearLayout
+		android:layout_width="269dp"
+		android:layout_height="wrap_content"
+		android:id="@+id/linearLayout1"
+		android:gravity="center"
+        android:layout_gravity="bottom|left|right|top"
+        android:paddingTop="6dp"
+        android:paddingBottom="6dp">
+		<CheckBox
+			android:id="@+id/cbarpspoof"
+			android:text="@string/cbarpspoof"
+			android:checked="true"
+			android:textSize="12sp"
+			android:layout_weight=".50"
+			android:textColor="#FFFFFF"
+			android:layout_height="wrap_content"
+			android:layout_width="fill_parent"
+            android:layout_gravity="bottom|left|top"/>
+		<CheckBox
+			android:id="@+id/cbgeneric"
+			android:checked="true"
+			android:text="@string/cbgeneric"
+			android:layout_weight=".50"
+			android:textSize="12sp"
+			android:textColor="#FFFFFF"
+			android:layout_height="wrap_content"
+			android:layout_width="fill_parent"
+            android:layout_gravity="bottom|right|top"/>
+	</LinearLayout>
+
+    <LinearLayout
+		android:layout_width="269dp"
+		android:layout_height="wrap_content"
+		android:id="@+id/linearLayout2"
+		android:gravity="center"
+        android:layout_gravity="bottom|left|right|top">
+
+        <Button
+            android:layout_width="269dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".50"
+            android:id="@+id/bstartstop"
+            android:enabled="true"
+            android:textSize="12sp"
+            android:text="Start"
+            android:layout_gravity="bottom|left|right|top"></Button>
+
+        <ProgressBar
+            android:id="@+id/progressBar1"
+            android:visibility="invisible"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+android:layout_gravity="left"></ProgressBar>
+
+    </LinearLayout>
+
+</LinearLayout>
