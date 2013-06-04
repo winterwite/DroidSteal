@@ -31,6 +31,7 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Handler;
 import android.util.Log;
+import com.crashlytics.android.Crashlytics;
 import com.zbrown.droidsteal.R;
 import org.apache.http.util.ByteArrayBuffer;
 
@@ -119,6 +120,7 @@ public class UpdateChecker {
 			try {
 				checkUpdate.interrupt();
 			} catch (Exception e) {
+              Crashlytics.logException(e);
 				Log.w(TAG, "checkUpdate.interrupt() exception");
 				// e.printStackTrace();
 			}
@@ -202,6 +204,7 @@ public class UpdateChecker {
 				Log.v(TAG, "The software is updated to the latest version: "
 						+ newVersion);
 		} catch (Exception e) {
+          Crashlytics.logException(e);
 			e.printStackTrace();
 			// if(alertError==null || !alertError.isShowing())
 			// mHandler.post(showError);
@@ -266,6 +269,7 @@ public class UpdateChecker {
 				Log.d(TAG, "Saved file with name: " + outFileName + " | Size: "
 						+ total);
 			} catch (Exception e) {
+              Crashlytics.logException(e);
 				e.printStackTrace();
 				return 1;
 			}

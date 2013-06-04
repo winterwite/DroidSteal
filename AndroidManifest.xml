@@ -53,5 +53,6 @@
 		<service
 			android:exported="false" android:name=".services.DroidSheepService">
 		</service>
+		<meta-data android:name="com.crashlytics.ApiKey" android:value="39c78bafebd5868482e969fefe8d65a21fb8f326"/>
 	</application>
 </manifest>
