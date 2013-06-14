@@ -21,6 +21,7 @@ package com.zbrown.droidsteal.objects;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.view.View;
 import android.widget.ListView;
 
 public class SessionListView extends ListView {
@@ -42,8 +43,12 @@ public class SessionListView extends ListView {
 	}
 	
 	public void refresh() {
-		adapter.notifyDataSetChanged(); 
-		this.setAdapter(adapter);
+		adapter.notifyDataSetChanged();
+        int index = getFirstVisiblePosition();
+        View v = getChildAt(0);
+        int top = (v == null) ? 0 : v.getTop();
+        this.setAdapter(adapter);
+        setSelectionFromTop(index, top);
 	}
 	
 }
