@@ -18,7 +18,9 @@ Things to remember:
 
 Downloads
 =========
-All builds are hosted here: http://goo.gl/Iq7JZ
+All new builds will be hosted on this repo with GitHub's release system: https://github.com/Zbob750/DroidSteal/releases
+
+All old/unsupported/out-of-date builds are hosted here: http://goo.gl/Iq7JZ
 
 Screenshots
 ===========
