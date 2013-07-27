@@ -89,8 +89,8 @@
  *
  ****************************************************************************/
 
-#define APP_NAME		"DroidSheep"
-#define APP_DESC		"DroidSheep for Android -- Cookie-Helper"
+#define APP_NAME		"DroidSteal"
+#define APP_DESC		"DroidSteal for Android -- Cookie-Helper"
 #define APP_COPYRIGHT	"This is free software!"
 #define APP_DISCLAIMER	"THERE IS ABSOLUTELY NO WARRANTY FOR THIS PROGRAM."
 
