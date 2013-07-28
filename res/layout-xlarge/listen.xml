@@ -102,14 +102,14 @@
             android:enabled="true"
             android:textSize="12sp"
             android:text="Start"
-            android:layout_gravity="bottom|left|right|top"></Button>
+            android:layout_gravity="bottom|left|right|top"/>
 
         <ProgressBar
             android:id="@+id/progressBar1"
             android:visibility="invisible"
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
-android:layout_gravity="left"></ProgressBar>
+            android:layout_gravity="left"/>
 
     </LinearLayout>
 
