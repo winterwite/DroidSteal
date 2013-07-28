@@ -43,7 +43,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
 
-public class UpdateChecker {
+public class UpdateChecker extends Activity {
 
 	private String versionUrl;
 	private String remoteApkUrl;
