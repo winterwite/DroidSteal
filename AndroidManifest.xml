@@ -1,7 +1,7 @@
 <manifest
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	package="com.zbrown.droidsteal"
-	android:versionName="124" android:versionCode="124">
+	android:versionName="1.2.4" android:versionCode="124">
 	<uses-sdk android:minSdkVersion="7" android:targetSdkVersion="18"/>
 	<uses-permission android:name="android.permission.INTERNET" />
 	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
