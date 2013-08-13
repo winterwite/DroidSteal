@@ -26,7 +26,7 @@ public interface Constants {
 	public static final String 	CLEANUP_COMMAND_DROIDSHEEP 	= "killall droidsheep\n";
 	public static final String 	CLEANUP_COMMAND_ARPSPOOF   	= "killall arpspoof\n";
 	
-	public static final String 	APPLICATION_TAG 			= "DROIDSHEEP";
+	public static final String 	APPLICATION_TAG 			= "DROIDSTEAL";
 	
 	public static final int 	ID_MOBILE 					= 1;
 	public static final int 	ID_NORMAL 					= 2;

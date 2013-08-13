@@ -9,32 +9,32 @@ import android.util.Log;
 
 public class DBHelper {
 
-	private static SQLiteDatabase droidsheepDB = null;
-	public static final String DROIDSHEEP_DBNAME = "droidsheep";
+	private static SQLiteDatabase droidstealDB = null;
+	public static final String DROIDSTEAL_DBNAME = "droidsteal";
 
-	public static final String CREATE_PREFERENCES = "CREATE TABLE IF NOT EXISTS DROIDSHEEP_PREFERENCES "
+	public static final String CREATE_PREFERENCES = "CREATE TABLE IF NOT EXISTS DROIDSTEAL_PREFERENCES "
 			+ "(id integer primary key autoincrement, " + "name  varchar(100)," + "value varchar(100));";
 
-	public static final String CREATE_BLACKLIST = "CREATE TABLE IF NOT EXISTS DROIDSHEEP_BLACKLIST "
+	public static final String CREATE_BLACKLIST = "CREATE TABLE IF NOT EXISTS DROIDSTEAL_BLACKLIST "
 			+ "(id integer primary key autoincrement, " + "domain varchar(100));";
 
 	public static void initDB(Context c) {
-		DBHelper.droidsheepDB = c.openOrCreateDatabase(DROIDSHEEP_DBNAME, Context.MODE_PRIVATE, null);
-		droidsheepDB.execSQL(CREATE_PREFERENCES);
-		droidsheepDB.execSQL(CREATE_BLACKLIST);
+		DBHelper.droidstealDB = c.openOrCreateDatabase(DROIDSTEAL_DBNAME, Context.MODE_PRIVATE, null);
+		droidstealDB.execSQL(CREATE_PREFERENCES);
+		droidstealDB.execSQL(CREATE_BLACKLIST);
 	}
 
 	public static boolean getGeneric(Context c) {
 		initDB(c);
-		Cursor cur = droidsheepDB.rawQuery("SELECT * FROM DROIDSHEEP_PREFERENCES WHERE name = 'generic';", new String[] {});
+		Cursor cur = droidstealDB.rawQuery("SELECT * FROM DROIDSTEAL_PREFERENCES WHERE name = 'generic';", new String[] {});
 		if (cur.moveToNext()) {
 			String s = cur.getString(cur.getColumnIndex("value"));
 			cur.close();
-			droidsheepDB.close();
+			droidstealDB.close();
 			return Boolean.parseBoolean(s);
 		} else {
 			cur.close();
-			droidsheepDB.close();
+			droidstealDB.close();
 			return false;
 		}
 	}
@@ -42,7 +42,7 @@ public class DBHelper {
 	public static HashMap<String, Object> getBlacklist(Context c) {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		initDB(c);
-		Cursor cur = droidsheepDB.rawQuery("SELECT domain FROM DROIDSHEEP_BLACKLIST;", new String[] {});
+		Cursor cur = droidstealDB.rawQuery("SELECT domain FROM DROIDSTEAL_BLACKLIST;", new String[] {});
 
 		while (cur.moveToNext()) {
 			String s = cur.getString(cur.getColumnIndex("domain"));
@@ -50,57 +50,57 @@ public class DBHelper {
 		}
 
 		cur.close();
-		droidsheepDB.close();
+		droidstealDB.close();
 		return map;
 	}
 
 	public static void addBlacklistEntry(Context c, String name) {
 		initDB(c);
-		droidsheepDB.execSQL("INSERT INTO DROIDSHEEP_BLACKLIST (domain) VALUES (?);", new Object[] { name });
-		droidsheepDB.close();
+		droidstealDB.execSQL("INSERT INTO DROIDSTEAL_BLACKLIST (domain) VALUES (?);", new Object[] { name });
+		droidstealDB.close();
 	}
 
 	public static void setGeneric(Context c, boolean b) {
 		initDB(c);
-		Cursor cur = droidsheepDB.rawQuery("SELECT count(id) as count FROM DROIDSHEEP_PREFERENCES where name = 'generic';",
+		Cursor cur = droidstealDB.rawQuery("SELECT count(id) as count FROM DROIDSTEAL_PREFERENCES where name = 'generic';",
 				new String[] {});
 		cur.moveToFirst();
 		int count = (int) cur.getLong(cur.getColumnIndex("count"));
 		if (count == 0) {
-			droidsheepDB.execSQL("INSERT INTO DROIDSHEEP_PREFERENCES (name, value) values ('generic', ?);",
+			droidstealDB.execSQL("INSERT INTO DROIDSTEAL_PREFERENCES (name, value) values ('generic', ?);",
 					new String[] { Boolean.toString(b) });
 		} else {
-			droidsheepDB.execSQL("UPDATE DROIDSHEEP_PREFERENCES SET value=? WHERE name='generic';",
+			droidstealDB.execSQL("UPDATE DROIDSTEAL_PREFERENCES SET value=? WHERE name='generic';",
 					new String[] { Boolean.toString(b) });
 		}
-		droidsheepDB.close();
+		droidstealDB.close();
 	}
 
 	public static void clearBlacklist(Context c) {
 		initDB(c);
-		droidsheepDB.execSQL("DELETE FROM DROIDSHEEP_BLACKLIST;", new Object[] {});
-		droidsheepDB.close();
+		droidstealDB.execSQL("DELETE FROM DROIDSTEAL_BLACKLIST;", new Object[] {});
+		droidstealDB.close();
 	}
 	
 	public static void setLastUpdateCheck(Context c, long date) {
 		initDB(c);
-		Cursor cur = droidsheepDB.rawQuery("SELECT count(id) as count FROM DROIDSHEEP_PREFERENCES where name = 'update';", new String[] {});
+		Cursor cur = droidstealDB.rawQuery("SELECT count(id) as count FROM DROIDSTEAL_PREFERENCES where name = 'update';", new String[] {});
 		cur.moveToFirst();
 		int count = (int) cur.getLong(cur.getColumnIndex("count"));
 		if (count == 0) {
-			droidsheepDB.execSQL("INSERT INTO DROIDSHEEP_PREFERENCES (name, value) values ('update', ?);",
+			droidstealDB.execSQL("INSERT INTO DROIDSTEAL_PREFERENCES (name, value) values ('update', ?);",
 					new String[] { Long.toString(date) });
 		} else {
-			droidsheepDB.execSQL("UPDATE DROIDSHEEP_PREFERENCES SET value=? WHERE name='update';",
+			droidstealDB.execSQL("UPDATE DROIDSTEAL_PREFERENCES SET value=? WHERE name='update';",
 					new String[] { Long.toString(date) });
 		}
-		droidsheepDB.close();
+		droidstealDB.close();
 	}
 	
 	public static long getLastUpdateMessage(Context c) {
 		try {
 			initDB(c);
-			Cursor cur = droidsheepDB.rawQuery("SELECT value FROM DROIDSHEEP_PREFERENCES where name = 'update';",
+			Cursor cur = droidstealDB.rawQuery("SELECT value FROM DROIDSTEAL_PREFERENCES where name = 'update';",
 					new String[] {});
 			cur.moveToFirst();
 			long datetime = cur.getLong(cur.getColumnIndex("value"));
@@ -108,7 +108,7 @@ public class DBHelper {
 		} catch (Exception e) {
 			Log.d(Constants.APPLICATION_TAG, "Could not load last update datetime: " + e.getLocalizedMessage());
 		} finally {
-			droidsheepDB.close();
+			droidstealDB.close();
 		}
 		return 0L;
 	}
