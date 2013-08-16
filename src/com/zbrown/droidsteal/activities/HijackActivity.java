@@ -174,7 +174,7 @@ public class HijackActivity extends Activity implements Constants {
 		authToHijack = (Auth) o;
 
 		if (authToHijack == null) {
-			Toast.makeText(this, "Sorry, there was an error loading this Authentication", Toast.LENGTH_LONG).show();
+			Toast.makeText(this, "There was an error loading this Authentication", Toast.LENGTH_LONG).show();
 			finish();
 			return;
 		}
