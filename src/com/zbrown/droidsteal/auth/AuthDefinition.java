@@ -21,101 +21,100 @@
 
 package com.zbrown.droidsteal.auth;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
+import com.zbrown.droidsteal.objects.CookieWrapper;
 import org.apache.http.client.ResponseHandler;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.BasicResponseHandler;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.impl.cookie.BasicClientCookie;
 
-import com.zbrown.droidsteal.objects.CookieWrapper;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class AuthDefinition {
 
-	ArrayList<String> cookieNames;
-	String url;
-	String domain;
-	String name;
-	String mobileurl;
-	String regexp = null;
-	String idurl  = null;
+    ArrayList<String> cookieNames;
+    String url;
+    String domain;
+    String name;
+    String mobileurl;
+    String regexp = null;
+    String idurl = null;
 
-	public AuthDefinition(ArrayList<String> cookieNames, String url, String mobileurl, String domain, String name, String idurl, String regexp) {
-		this.cookieNames = cookieNames;
-		this.url = url;
-		this.domain = domain;
-		this.name = name;
-		this.mobileurl = mobileurl;
-		this.idurl = idurl != null ? idurl : url;
-		this.regexp = regexp;
-	}
+    public AuthDefinition(ArrayList<String> cookieNames, String url, String mobileurl, String domain, String name, String idurl, String regexp) {
+        this.cookieNames = cookieNames;
+        this.url = url;
+        this.domain = domain;
+        this.name = name;
+        this.mobileurl = mobileurl;
+        this.idurl = idurl != null ? idurl : url;
+        this.regexp = regexp;
+    }
 
-	public Auth getAuthFromCookieString(String cookieListString) {
-		String[] lst = cookieListString.split("\\|\\|\\|");
-		if (lst.length < 3)
-			return null;
-		cookieListString = lst[0];
+    public Auth getAuthFromCookieString(String cookieListString) {
+        String[] lst = cookieListString.split("\\|\\|\\|");
+        if (lst.length < 3)
+            return null;
+        cookieListString = lst[0];
 
-		ArrayList<CookieWrapper> cookieList = new ArrayList<CookieWrapper>();
-		String[] cookies = cookieListString.split(";");
-		for (String cookieString : cookies) {
-			String[] values = cookieString.split("=");
-			if (cookieString.endsWith("=")) {
-				values[values.length - 1] = values[values.length - 1] + "=";
-			}
-			values[0] = values[0].replaceAll("Cookie:", "");
-			values[0] = values[0].replaceAll(" ", "");
-			if (cookieNames.contains(values[0])) {
-				String val = "";
-				for (int i = 1; i < values.length; i++) {
-					if (i > 1)
-						val += "=";
-					val += values[i];
-				}
-				BasicClientCookie cookie = new BasicClientCookie(values[0], val);
-				cookie.setDomain(domain);
-				cookie.setPath("/");
-				cookie.setVersion(0);
-				cookieList.add(new CookieWrapper(cookie, url));
-			}
-		}
-		if (cookieList != null && !cookieList.isEmpty() && cookieList.size() == cookieNames.size()) {
-			return new Auth(cookieList, url, mobileurl, getIdFromWebservice(cookieList), lst[2], this.name);
-		}
-		return null;
-	}
+        ArrayList<CookieWrapper> cookieList = new ArrayList<CookieWrapper>();
+        String[] cookies = cookieListString.split(";");
+        for (String cookieString : cookies) {
+            String[] values = cookieString.split("=");
+            if (cookieString.endsWith("=")) {
+                values[values.length - 1] = values[values.length - 1] + "=";
+            }
+            values[0] = values[0].replaceAll("Cookie:", "");
+            values[0] = values[0].replaceAll(" ", "");
+            if (cookieNames.contains(values[0])) {
+                String val = "";
+                for (int i = 1; i < values.length; i++) {
+                    if (i > 1)
+                        val += "=";
+                    val += values[i];
+                }
+                BasicClientCookie cookie = new BasicClientCookie(values[0], val);
+                cookie.setDomain(domain);
+                cookie.setPath("/");
+                cookie.setVersion(0);
+                cookieList.add(new CookieWrapper(cookie, url));
+            }
+        }
+        if (cookieList != null && !cookieList.isEmpty() && cookieList.size() == cookieNames.size()) {
+            return new Auth(cookieList, url, mobileurl, getIdFromWebservice(cookieList), lst[2], this.name);
+        }
+        return null;
+    }
 
-	private String getIdFromWebservice(List<CookieWrapper> cookieList) {
-		try {
-			Pattern pattern = Pattern.compile(regexp);
+    private String getIdFromWebservice(List<CookieWrapper> cookieList) {
+        try {
+            Pattern pattern = Pattern.compile(regexp);
 
-			DefaultHttpClient httpclient = new DefaultHttpClient();
-			HttpGet http = new HttpGet(idurl);
-			StringBuffer cookies = new StringBuffer();
-			for (CookieWrapper cookie : cookieList) {
-				cookies.append(cookie.getCookie().getName());
-				cookies.append("=");
-				cookies.append(cookie.getCookie().getValue());
-				cookies.append("; ");
-			}
-			http.addHeader("Cookie", cookies.toString());
-			ResponseHandler<String> responseHandler = new BasicResponseHandler();
-			String response = httpclient.execute(http, responseHandler);
+            DefaultHttpClient httpclient = new DefaultHttpClient();
+            HttpGet http = new HttpGet(idurl);
+            StringBuffer cookies = new StringBuffer();
+            for (CookieWrapper cookie : cookieList) {
+                cookies.append(cookie.getCookie().getName());
+                cookies.append("=");
+                cookies.append(cookie.getCookie().getValue());
+                cookies.append("; ");
+            }
+            http.addHeader("Cookie", cookies.toString());
+            ResponseHandler<String> responseHandler = new BasicResponseHandler();
+            String response = httpclient.execute(http, responseHandler);
 
-			Matcher matcher = pattern.matcher(response);
-			boolean matchFound = matcher.find();
-			if (matchFound) {
-				String s = matcher.group(2);
-				return s;
-			}
-		} catch (Exception e) {
-			return "";
-		}
-		return "";
-	}
-	
+            Matcher matcher = pattern.matcher(response);
+            boolean matchFound = matcher.find();
+            if (matchFound) {
+                String s = matcher.group(2);
+                return s;
+            }
+        } catch (Exception e) {
+            return "";
+        }
+        return "";
+    }
+
 }

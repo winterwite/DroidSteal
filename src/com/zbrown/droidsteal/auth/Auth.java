@@ -19,88 +19,88 @@
 
 package com.zbrown.droidsteal.auth;
 
+import com.zbrown.droidsteal.objects.CookieWrapper;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 
-import com.zbrown.droidsteal.objects.CookieWrapper;
-
 
 public class Auth implements Serializable {
-	private static final long serialVersionUID = 7124255590593980755L;
-	
-	
-	ArrayList <CookieWrapper> cookieList = null;
-	String url = null;
-	String mobileurl = null;
-	int id = 0; // Id contains a hash sum of all cookies in the object. 
-	boolean generic = true;
-	boolean saved = false;
-	String name = null;
-	String authName = null;
-	String ip = null;
-	
-	public Auth(ArrayList<CookieWrapper> cookieList, String url, String mobileUrl, String name, String ip, String authName) {
-		this.cookieList = cookieList;
-		this.mobileurl = mobileUrl;
-		this.authName = authName;
-		this.generic = authName.equalsIgnoreCase("generic");
-		this.url = url;
-		this.ip = ip;
-		this.name = (name == null || name.equals(""))?url:name+" [" + url + "]";
-		for (CookieWrapper c : cookieList) {
-			id += c.getCookie().getValue().hashCode();
-		}
-	}
-	
-	// Two authentications are supposed to be identical, in case their hashes are the same.
-	@Override
-	public boolean equals(Object o) {
-		if (!(o instanceof Auth)) return false;
-		Auth a = (Auth) o;
-		return (a.getId() == this.id);
-	}
-	
-	@Override
-	public int hashCode() {
-		return id;
-	}
-	
+    private static final long serialVersionUID = 7124255590593980755L;
 
-	public int getId() {
-		return id;
-	}
 
-	public ArrayList<CookieWrapper> getCookies() {
-		return cookieList;
-	}
+    ArrayList<CookieWrapper> cookieList = null;
+    String url = null;
+    String mobileurl = null;
+    int id = 0; // Id contains a hash sum of all cookies in the object.
+    boolean generic = true;
+    boolean saved = false;
+    String name = null;
+    String authName = null;
+    String ip = null;
 
-	public String getName() {
-		return name;
-	}
+    public Auth(ArrayList<CookieWrapper> cookieList, String url, String mobileUrl, String name, String ip, String authName) {
+        this.cookieList = cookieList;
+        this.mobileurl = mobileUrl;
+        this.authName = authName;
+        this.generic = authName.equalsIgnoreCase("generic");
+        this.url = url;
+        this.ip = ip;
+        this.name = (name == null || name.equals("")) ? url : name + " [" + url + "]";
+        for (CookieWrapper c : cookieList) {
+            id += c.getCookie().getValue().hashCode();
+        }
+    }
 
-	public String getUrl() {
-		return url;
-	}
-	
-	public String getIp() {
-		return ip;
-	}
+    // Two authentications are supposed to be identical, in case their hashes are the same.
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof Auth)) return false;
+        Auth a = (Auth) o;
+        return (a.getId() == this.id);
+    }
 
-	public String getMobileUrl() {
-		return mobileurl;
-	}
-	
-	
-	public boolean isGeneric() {
-		return generic;
-	}
-	
-	public boolean isSaved() {
-		return saved;
-	}
-	
-	public void setSaved(boolean saved) {
-		this.saved = saved;
-	}
+    @Override
+    public int hashCode() {
+        return id;
+    }
+
+
+    public int getId() {
+        return id;
+    }
+
+    public ArrayList<CookieWrapper> getCookies() {
+        return cookieList;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public String getIp() {
+        return ip;
+    }
+
+    public String getMobileUrl() {
+        return mobileurl;
+    }
+
+
+    public boolean isGeneric() {
+        return generic;
+    }
+
+    public boolean isSaved() {
+        return saved;
+    }
+
+    public void setSaved(boolean saved) {
+        this.saved = saved;
+    }
 
 }

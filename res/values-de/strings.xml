@@ -1,62 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">DroidSteal</string>
-    
-    <string name="license">DroidSteal kommt ohne jegliche Garantie.\n\n Die Verwendung der Software geschieht auf eigenes Risiko, der Entwickler ist nicht für Schäden verantwortlich, 
-    		die durch DroidSteal oder seine Nutzung verursacht wurden.\nEs ist liegt alleine in der Verantwortung des Nutzers, die Rechte seines Landes zu prüfen und sicherzustellen, 
-    		dass die Verwendung von DroidSteal in seinem Land legal ist. In einigen Ländern ist das Stehlen von Identitäten eine Straftat.\n\n
-    		Vergiss nie, was du tust! Identitätsdiebstahl kann viel Ärger für dich oder das Opfer bedeuten!\n</string>
+
+    <string name="license">DroidSteal kommt ohne jegliche Garantie.\n\n Die Verwendung der Software geschieht auf
+        eigenes Risiko, der Entwickler ist nicht für Schäden verantwortlich,
+        die durch DroidSteal oder seine Nutzung verursacht wurden.\nEs ist liegt alleine in der Verantwortung des
+        Nutzers, die Rechte seines Landes zu prüfen und sicherzustellen,
+        dass die Verwendung von DroidSteal in seinem Land legal ist. In einigen Ländern ist das Stehlen von Identitäten
+        eine Straftat.\n\n
+        Vergiss nie, was du tust! Identitätsdiebstahl kann viel Ärger für dich oder das Opfer bedeuten!\n
+    </string>
     <string name="unrooted">DIESES GERÄT SCHEINT KEINEN ROOT-ZUGRIFF ZU HABEN!\n\n
-    		DroidSteal kann ausschließlich auf Geräten mit Superuser Zugriff verwendet werden. Wenn das Gerät keinen ROOT-Zugriff besitzt, kann und wird DroidSteal nicht
-    		korrekt funktionieren - bitte frag dann nicht nach technischer Unterstützung!
-    		Trotzdem wird DroidSteal aus Kompatibilitätsgründen jetzt starten.</string>
+        DroidSteal kann ausschließlich auf Geräten mit Superuser Zugriff verwendet werden. Wenn das Gerät keinen
+        ROOT-Zugriff besitzt, kann und wird DroidSteal nicht
+        korrekt funktionieren - bitte frag dann nicht nach technischer Unterstützung!
+        Trotzdem wird DroidSteal aus Kompatibilitätsgründen jetzt starten.
+    </string>
     <string name="accept">Ich verstehe und akzeptiere die Vereinbarung</string>
     <string name="button_stop">Stop</string>
-	<string name="button_start">Start</string>
-	<string name="label_running">COOKIESUCHE</string>
-	<string name="label_running_and_spoofing">COOKIESUCHE UND ARP-SPOOFING</string>
-	<string name="label_not_running_and_spoofing">NUR ARP-SPOOFING</string>
-	<string name="label_not_running">BEREIT</string>
-	<string name="label_networkname_pref">Verbunden mit </string>
-	<string name="label_status_connected">Netzwerkstatus: VERBUNDEN</string>
-	<string name="label_status_disconnected">Netzwerkstatus: NICHT VERBUNDEN</string>
-	<string name="notification_title">Eine neue Session wurde erkannt</string>
-	<string name="notification_text">Hier drücken um DroidSteal zu öffnen!</string>
-	<string name="toast_wifi_lost">WLAN Verbindung getrennt oder geändert. DroidSteal wurde angehalten!</string>
-	<string name="toast_process_running_text">Der DroidSteal prozess läuft bereits</string>
-	<string name="menu_black_list">Rechner zur Blacklist hinzufügen</string>
-	<string name="menu_save">Cookies speichern</string>
-	<string name="cbgeneric">Generischer Modus</string>
-	<string name="cbarpspoof">ARP-Spoofing</string>
-	<string name="installbusybox">Busybox sollte installiert sein, damit DroidSteal richtig funktioniert. Möchtest du BusyBox vom Android-market jetzt installieren?</string>
-	<string name="menu_delete">Gespeicherte Cookies löschen</string>
-	<string name="menu_open_mobile">Mobile Seite öffnen</string>
-	<string name="menu_open_normal">Normale Seite öffnen</string>
-	
-	<string name="menu_remove_from_list">Eintrag entfernen</string>
-	<string name="menu_choose_page_title">Seitentyp wählen:</string>
-	<string name="menu_wifilist">WLAN wählen</string>
-	<string name="menu_clear_sessionlist">Liste leeren</string>
-	<string name="menu_debug">Debug</string>
-	<string name="menu_export">Export via eMail</string>
-	<string name="clear_blacklist">Möchtest du wirklich alle Einträge der Blacklist löschen??</string>
-	<string name="menu_blacklist_clear">Blacklist leeren</string>
-	<string name="menu_helpforum">HILFE!</string>
-	<string name="menu_donate">SPENDEN</string>
-	<string name="button_ok">Ok</string>
-	<string name="button_abprt">Abbrechen</string>
-	<string name="accept_text">Du musst diese Vereinbarung akzeptieren um DroidSteal nutzen zu können!</string>
-	<string name="popup_exit">Möchtest du DroidSteal wirklich beenden? Wenn DroidSteal im Hintergrund weiterlaufen soll, drücke einfach den HOME Button!</string>
-	<string name="popup_debug">This will start a debug session. It will start Listening and collect debug information. 
-		Let DroidSteal keep listening for some seconds (at least 30) and press "stop". 
-		An email will open which contains all debug information. No data will be sent silently!</string>
-	
-	<string name="donatetext">Ich hoffe du magst DroidSteal!\n\nDroidSteal ist kostenfrei und open source. 
-		Trotzdem bedarf es viel Zeit für technischen Support, Entwicklung und außerdem auch etwas Geld um beispielsweise 
-		www.DroidSteal.de zu unterhalten. \n\nWenn du die Arbeit magst und dabei helfen möchtest, das alles am Laufen zu halten, 
-		kannst du gerne etwas spenden.\n\nDanke!</string>
-	<string name="donate_no">Nein danke, ich bin nicht interessiert.</string>
-	<string name="donate_yes">Ja, DroidSteal ist es wert!</string>
-	<string name="menu_about">über</string>
-	
+    <string name="button_start">Start</string>
+    <string name="label_running">COOKIESUCHE</string>
+    <string name="label_running_and_spoofing">COOKIESUCHE UND ARP-SPOOFING</string>
+    <string name="label_not_running_and_spoofing">NUR ARP-SPOOFING</string>
+    <string name="label_not_running">BEREIT</string>
+    <string name="label_networkname_pref">Verbunden mit</string>
+    <string name="label_status_connected">Netzwerkstatus: VERBUNDEN</string>
+    <string name="label_status_disconnected">Netzwerkstatus: NICHT VERBUNDEN</string>
+    <string name="notification_title">Eine neue Session wurde erkannt</string>
+    <string name="notification_text">Hier drücken um DroidSteal zu öffnen!</string>
+    <string name="toast_wifi_lost">WLAN Verbindung getrennt oder geändert. DroidSteal wurde angehalten!</string>
+    <string name="toast_process_running_text">Der DroidSteal prozess läuft bereits</string>
+    <string name="menu_black_list">Rechner zur Blacklist hinzufügen</string>
+    <string name="menu_save">Cookies speichern</string>
+    <string name="cbgeneric">Generischer Modus</string>
+    <string name="cbarpspoof">ARP-Spoofing</string>
+    <string name="installbusybox">Busybox sollte installiert sein, damit DroidSteal richtig funktioniert. Möchtest du
+        BusyBox vom Android-market jetzt installieren?
+    </string>
+    <string name="menu_delete">Gespeicherte Cookies löschen</string>
+    <string name="menu_open_mobile">Mobile Seite öffnen</string>
+    <string name="menu_open_normal">Normale Seite öffnen</string>
+
+    <string name="menu_remove_from_list">Eintrag entfernen</string>
+    <string name="menu_choose_page_title">Seitentyp wählen:</string>
+    <string name="menu_wifilist">WLAN wählen</string>
+    <string name="menu_clear_sessionlist">Liste leeren</string>
+    <string name="menu_debug">Debug</string>
+    <string name="menu_export">Export via eMail</string>
+    <string name="clear_blacklist">Möchtest du wirklich alle Einträge der Blacklist löschen??</string>
+    <string name="menu_blacklist_clear">Blacklist leeren</string>
+    <string name="menu_helpforum">HILFE!</string>
+    <string name="menu_donate">SPENDEN</string>
+    <string name="button_ok">Ok</string>
+    <string name="button_abprt">Abbrechen</string>
+    <string name="accept_text">Du musst diese Vereinbarung akzeptieren um DroidSteal nutzen zu können!</string>
+    <string name="popup_exit">Möchtest du DroidSteal wirklich beenden? Wenn DroidSteal im Hintergrund weiterlaufen soll,
+        drücke einfach den HOME Button!
+    </string>
+    <string name="popup_debug">This will start a debug session. It will start Listening and collect debug information.
+        Let DroidSteal keep listening for some seconds (at least 30) and press "stop".
+        An email will open which contains all debug information. No data will be sent silently!
+    </string>
+
+    <string name="donatetext">Ich hoffe du magst DroidSteal!\n\nDroidSteal ist kostenfrei und open source.
+        Trotzdem bedarf es viel Zeit für technischen Support, Entwicklung und außerdem auch etwas Geld um beispielsweise
+        www.DroidSteal.de zu unterhalten. \n\nWenn du die Arbeit magst und dabei helfen möchtest, das alles am Laufen zu
+        halten,
+        kannst du gerne etwas spenden.\n\nDanke!
+    </string>
+    <string name="donate_no">Nein danke, ich bin nicht interessiert.</string>
+    <string name="donate_yes">Ja, DroidSteal ist es wert!</string>
+    <string name="menu_about">über</string>
+
 </resources>

@@ -36,84 +36,84 @@ import com.zbrown.droidsteal.auth.Auth;
 
 public class AuthListAdapter extends BaseAdapter {
 
-	private Context context;
+    private Context context;
 
-	public AuthListAdapter(Context context) {
-		this.context = context;
-	}
+    public AuthListAdapter(Context context) {
+        this.context = context;
+    }
 
-	public int getCount() {
-		return ListenActivity.authList.size();
-	}
+    public int getCount() {
+        return ListenActivity.authList.size();
+    }
 
-	public Auth getItem(int position) {
-		return ListenActivity.authList.get(position);
-	}
+    public Auth getItem(int position) {
+        return ListenActivity.authList.get(position);
+    }
 
-	public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(int position, View convertView, ViewGroup parent) {
 
-		LinearLayout itemLayout = (LinearLayout) LayoutInflater.from(context).inflate(R.layout.listelement, parent, false);
+        LinearLayout itemLayout = (LinearLayout) LayoutInflater.from(context).inflate(R.layout.listelement, parent, false);
 
-		if (position >= ListenActivity.authList.size())
-			return itemLayout;
+        if (position >= ListenActivity.authList.size())
+            return itemLayout;
 
-		if (ListenActivity.authList == null || ListenActivity.authList.get(position) == null) {
-			return itemLayout;
-		}
-		Auth auth = ListenActivity.authList.get(position);
+        if (ListenActivity.authList == null || ListenActivity.authList.get(position) == null) {
+            return itemLayout;
+        }
+        Auth auth = ListenActivity.authList.get(position);
 
-		TextView tv1 = (TextView) itemLayout.findViewById(R.id.listtext1);
-		TextView tv2 = (TextView) itemLayout.findViewById(R.id.listtext2);
-		ImageView imgView = (ImageView) itemLayout.findViewById(R.id.image);
+        TextView tv1 = (TextView) itemLayout.findViewById(R.id.listtext1);
+        TextView tv2 = (TextView) itemLayout.findViewById(R.id.listtext2);
+        ImageView imgView = (ImageView) itemLayout.findViewById(R.id.image);
 
-		tv1.setText(auth.getName());
+        tv1.setText(auth.getName());
 
-		if (auth.isGeneric()) {
-			tv1.setTextColor(Color.YELLOW);
-		} else {
-			tv1.setTextColor(Color.GREEN);
-		}
-		
-		if (auth.isGeneric() || auth.getName() == null || auth.getName().equals("")) {
-			tv2.setText(auth.getIp() + " ID: " + auth.getId() + (auth.isSaved() ? " << SAVED >>" : ""));
-		} else {
-			tv2.setText(auth.getIp() + " " + auth.getName() + "@" + auth.getUrl());			
-		}
+        if (auth.isGeneric()) {
+            tv1.setTextColor(Color.YELLOW);
+        } else {
+            tv1.setTextColor(Color.GREEN);
+        }
 
-		if (auth.isSaved()) {			
-			itemLayout.setBackgroundColor(Color.argb(150, 193, 205, 205));
-			tv2.setTextColor(Color.BLACK);
-		}
+        if (auth.isGeneric() || auth.getName() == null || auth.getName().equals("")) {
+            tv2.setText(auth.getIp() + " ID: " + auth.getId() + (auth.isSaved() ? " << SAVED >>" : ""));
+        } else {
+            tv2.setText(auth.getIp() + " " + auth.getName() + "@" + auth.getUrl());
+        }
 
-		if (auth.getUrl().contains("amazon")) {
-			imgView.setImageDrawable(context.getResources().getDrawable(R.drawable.amazon));
-		} else if (auth.getUrl().contains("ebay")) {
-			imgView.setImageDrawable(context.getResources().getDrawable(R.drawable.ebay));
-		} else if (auth.getUrl().contains("facebook")) {
-			imgView.setImageDrawable(context.getResources().getDrawable(R.drawable.facebook));
-		} else if (auth.getUrl().contains("flickr")) {
-			imgView.setImageDrawable(context.getResources().getDrawable(R.drawable.flickr));
-		} else if (auth.getUrl().contains("google")) {
-			imgView.setImageDrawable(context.getResources().getDrawable(R.drawable.google));
-		} else if (auth.getUrl().contains("linkedin")) {
-			imgView.setImageDrawable(context.getResources().getDrawable(R.drawable.linkedin));
-		} else if (auth.getUrl().contains("twitter")) {
-			imgView.setImageDrawable(context.getResources().getDrawable(R.drawable.twitter));
-		} else if (auth.getUrl().contains("youtube")) {
-			imgView.setImageDrawable(context.getResources().getDrawable(R.drawable.youtube));
-		} else if (auth.getUrl().contains("reddit")) {
-			imgView.setImageDrawable(context.getResources().getDrawable(R.drawable.reddit));
-		} else if (auth.getUrl().contains("edmodo")) {
-			imgView.setImageDrawable(context.getResources().getDrawable(R.drawable.edmodo));
-		} else {
-			imgView.setImageDrawable(context.getResources().getDrawable(R.drawable.droidsteal_square));
-		}
+        if (auth.isSaved()) {
+            itemLayout.setBackgroundColor(Color.argb(150, 193, 205, 205));
+            tv2.setTextColor(Color.BLACK);
+        }
 
-		return itemLayout;
-	}
+        if (auth.getUrl().contains("amazon")) {
+            imgView.setImageDrawable(context.getResources().getDrawable(R.drawable.amazon));
+        } else if (auth.getUrl().contains("ebay")) {
+            imgView.setImageDrawable(context.getResources().getDrawable(R.drawable.ebay));
+        } else if (auth.getUrl().contains("facebook")) {
+            imgView.setImageDrawable(context.getResources().getDrawable(R.drawable.facebook));
+        } else if (auth.getUrl().contains("flickr")) {
+            imgView.setImageDrawable(context.getResources().getDrawable(R.drawable.flickr));
+        } else if (auth.getUrl().contains("google")) {
+            imgView.setImageDrawable(context.getResources().getDrawable(R.drawable.google));
+        } else if (auth.getUrl().contains("linkedin")) {
+            imgView.setImageDrawable(context.getResources().getDrawable(R.drawable.linkedin));
+        } else if (auth.getUrl().contains("twitter")) {
+            imgView.setImageDrawable(context.getResources().getDrawable(R.drawable.twitter));
+        } else if (auth.getUrl().contains("youtube")) {
+            imgView.setImageDrawable(context.getResources().getDrawable(R.drawable.youtube));
+        } else if (auth.getUrl().contains("reddit")) {
+            imgView.setImageDrawable(context.getResources().getDrawable(R.drawable.reddit));
+        } else if (auth.getUrl().contains("edmodo")) {
+            imgView.setImageDrawable(context.getResources().getDrawable(R.drawable.edmodo));
+        } else {
+            imgView.setImageDrawable(context.getResources().getDrawable(R.drawable.droidsteal_square));
+        }
 
-	public long getItemId(int position) {
-		return position;
-	}
+        return itemLayout;
+    }
+
+    public long getItemId(int position) {
+        return position;
+    }
 
 }

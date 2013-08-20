@@ -26,29 +26,29 @@ import android.widget.ListView;
 
 public class SessionListView extends ListView {
 
-	public AuthListAdapter adapter = null;
-	
-	public SessionListView(Context context) {
-		super(context);
-		adapter = new AuthListAdapter(context);
-		this.setAdapter(adapter);
-		this.setLongClickable(false);
-	}
-	
-	public SessionListView(Context c, AttributeSet attrset) {
-		super(c, attrset);
-		adapter = new AuthListAdapter(c);
-		this.setAdapter(adapter);
-		this.setLongClickable(false);
-	}
-	
-	public void refresh() {
-		adapter.notifyDataSetChanged();
+    public AuthListAdapter adapter = null;
+
+    public SessionListView(Context context) {
+        super(context);
+        adapter = new AuthListAdapter(context);
+        this.setAdapter(adapter);
+        this.setLongClickable(false);
+    }
+
+    public SessionListView(Context c, AttributeSet attrset) {
+        super(c, attrset);
+        adapter = new AuthListAdapter(c);
+        this.setAdapter(adapter);
+        this.setLongClickable(false);
+    }
+
+    public void refresh() {
+        adapter.notifyDataSetChanged();
         int index = getFirstVisiblePosition();
         View v = getChildAt(0);
         int top = (v == null) ? 0 : v.getTop();
         this.setAdapter(adapter);
         setSelectionFromTop(index, top);
-	}
-	
+    }
+
 }

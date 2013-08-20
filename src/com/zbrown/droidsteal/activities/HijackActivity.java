@@ -41,161 +41,161 @@ import org.apache.http.cookie.Cookie;
 
 
 public class HijackActivity extends Activity implements Constants {
-	private WebView webview = null;
-	private Auth authToHijack = null;
+    private WebView webview = null;
+    private Auth authToHijack = null;
 
-	private class MyWebViewClient extends WebViewClient {
-		@Override
-		public boolean shouldOverrideUrlLoading(WebView view, String url) {
-			view.loadUrl(url);
-			return true;
-		}
-	}
+    private class MyWebViewClient extends WebViewClient {
+        @Override
+        public boolean shouldOverrideUrlLoading(WebView view, String url) {
+            view.loadUrl(url);
+            return true;
+        }
+    }
 
-	private void setupCookies() {
-		Log.i(APPLICATION_TAG, "######################## COOKIE SETUP ###############################");
-		CookieManager manager = CookieManager.getInstance();
-		Log.i(APPLICATION_TAG, "Cookiemanager has cookies: " + (manager.hasCookies() ? "YES" : "NO"));
-		if (manager.hasCookies()) {
-			manager.removeAllCookie();
-			try {
-				Thread.sleep(3000);
-			} catch (InterruptedException e) {
-			}
-			Log.i(APPLICATION_TAG, "Cookiemanager has still cookies: " + (manager.hasCookies() ? "YES" : "NO"));
-		}
-		Log.i(APPLICATION_TAG, "######################## COOKIE SETUP START ###############################");
-		for (CookieWrapper cookieWrapper : authToHijack.getCookies()) {
-			Cookie cookie = cookieWrapper.getCookie();
-			String cookieString = cookie.getName() + "=" + cookie.getValue() + "; domain=" + cookie.getDomain() + "; Path="
-					+ cookie.getPath();
-			Log.i(APPLICATION_TAG, "Setting up cookie: " + cookieString);
-			manager.setCookie(cookie.getDomain(), cookieString);
-		}
-		CookieSyncManager.getInstance().sync();
-		Log.i(APPLICATION_TAG, "######################## COOKIE SETUP DONE ###############################");
-	}
+    private void setupCookies() {
+        Log.i(APPLICATION_TAG, "######################## COOKIE SETUP ###############################");
+        CookieManager manager = CookieManager.getInstance();
+        Log.i(APPLICATION_TAG, "Cookiemanager has cookies: " + (manager.hasCookies() ? "YES" : "NO"));
+        if (manager.hasCookies()) {
+            manager.removeAllCookie();
+            try {
+                Thread.sleep(3000);
+            } catch (InterruptedException e) {
+            }
+            Log.i(APPLICATION_TAG, "Cookiemanager has still cookies: " + (manager.hasCookies() ? "YES" : "NO"));
+        }
+        Log.i(APPLICATION_TAG, "######################## COOKIE SETUP START ###############################");
+        for (CookieWrapper cookieWrapper : authToHijack.getCookies()) {
+            Cookie cookie = cookieWrapper.getCookie();
+            String cookieString = cookie.getName() + "=" + cookie.getValue() + "; domain=" + cookie.getDomain() + "; Path="
+                    + cookie.getPath();
+            Log.i(APPLICATION_TAG, "Setting up cookie: " + cookieString);
+            manager.setCookie(cookie.getDomain(), cookieString);
+        }
+        CookieSyncManager.getInstance().sync();
+        Log.i(APPLICATION_TAG, "######################## COOKIE SETUP DONE ###############################");
+    }
 
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		getWindow().requestFeature(Window.FEATURE_PROGRESS);
-		setContentView(R.layout.webview);
-		CookieSyncManager.createInstance(this);
-	}
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        getWindow().requestFeature(Window.FEATURE_PROGRESS);
+        setContentView(R.layout.webview);
+        CookieSyncManager.createInstance(this);
+    }
 
-	private void setupWebView() {
-		webview = (WebView) findViewById(R.id.webviewhijack);
-		webview.setWebViewClient(new MyWebViewClient());
-		WebSettings webSettings = webview.getSettings();
-		webSettings.setUserAgentString("foo");
-		webSettings.setJavaScriptEnabled(true);
-		webSettings.setAppCacheEnabled(false);
-		webSettings.setBuiltInZoomControls(true);
+    private void setupWebView() {
+        webview = (WebView) findViewById(R.id.webviewhijack);
+        webview.setWebViewClient(new MyWebViewClient());
+        WebSettings webSettings = webview.getSettings();
+        webSettings.setUserAgentString("foo");
+        webSettings.setJavaScriptEnabled(true);
+        webSettings.setAppCacheEnabled(false);
+        webSettings.setBuiltInZoomControls(true);
         webSettings.setDisplayZoomControls(false);
-		webview.setWebChromeClient(new WebChromeClient() {
-			@Override
-			public void onProgressChanged(WebView view, int progress) {
-				HijackActivity.this.setProgress(progress * 100);
-			}
-		});
-	}
+        webview.setWebChromeClient(new WebChromeClient() {
+            @Override
+            public void onProgressChanged(WebView view, int progress) {
+                HijackActivity.this.setProgress(progress * 100);
+            }
+        });
+    }
 
-	@Override
-	public boolean onKeyDown(int keyCode, KeyEvent event) {
-		if ((keyCode == KeyEvent.KEYCODE_BACK) && webview.canGoBack()) {
-			webview.goBack();
-			return true;
-		}
-		return super.onKeyDown(keyCode, event);
-	}
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if ((keyCode == KeyEvent.KEYCODE_BACK) && webview.canGoBack()) {
+            webview.goBack();
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
 
-	//Menu Items
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		super.onCreateOptionsMenu(menu);
-		menu.add(0, 0, 0, getString(R.string.back));
-		menu.add(1, 2, 0, getString(R.string.reload));
+    //Menu Items
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        super.onCreateOptionsMenu(menu);
+        menu.add(0, 0, 0, getString(R.string.back));
+        menu.add(1, 2, 0, getString(R.string.reload));
         menu.add(0, 1, 0, getString(R.string.forward));
         menu.add(1, 4, 0, getString(R.string.changeurl));
-		menu.add(1, 3, 0, getString(R.string.close));
-		return true;
-	}
+        menu.add(1, 3, 0, getString(R.string.close));
+        return true;
+    }
 
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		switch (item.getItemId()) {
-		case 0:
-			if (webview.canGoBack())
-				webview.goBack();
-			break;
-		case 1:
-			if (webview.canGoForward())
-				webview.goForward();
-			break;
-		case 2:
-			webview.reload();
-			break;
-		case 3:
-			this.finish();
-			break;
-		case 4:
-			selectURL();
-			break;
-		}
-		return false;
-	}
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case 0:
+                if (webview.canGoBack())
+                    webview.goBack();
+                break;
+            case 1:
+                if (webview.canGoForward())
+                    webview.goForward();
+                break;
+            case 2:
+                webview.reload();
+                break;
+            case 3:
+                this.finish();
+                break;
+            case 4:
+                selectURL();
+                break;
+        }
+        return false;
+    }
 
-	private void selectURL() {
-		AlertDialog.Builder alert = new AlertDialog.Builder(this);
+    private void selectURL() {
+        AlertDialog.Builder alert = new AlertDialog.Builder(this);
 
-		alert.setTitle(getString(R.string.changeurl));
-		alert.setMessage(getString(R.string.customurl));
+        alert.setTitle(getString(R.string.changeurl));
+        alert.setMessage(getString(R.string.customurl));
 
-		// Set an EditText view to get user input   
-		final EditText inputName = new EditText(this);
-		inputName.setText(HijackActivity.this.webview.getUrl());
-		alert.setView(inputName);
+        // Set an EditText view to get user input
+        final EditText inputName = new EditText(this);
+        inputName.setText(HijackActivity.this.webview.getUrl());
+        alert.setView(inputName);
 
-		alert.setPositiveButton("Go", new DialogInterface.OnClickListener() {
-			public void onClick(DialogInterface dialog, int whichButton) {
-				HijackActivity.this.webview.loadUrl(inputName.getText().toString());
-			}
-		});
+        alert.setPositiveButton("Go", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+                HijackActivity.this.webview.loadUrl(inputName.getText().toString());
+            }
+        });
 
-		alert.show();
-	}
+        alert.show();
+    }
 
-	@Override
-	protected void onStart() {
-		super.onStart();
-		
-		Object o = this.getIntent().getExtras().getSerializable(Constants.BUNDLE_KEY_AUTH);
-		authToHijack = (Auth) o;
+    @Override
+    protected void onStart() {
+        super.onStart();
 
-		if (authToHijack == null) {
-			Toast.makeText(this, "There was an error loading this Authentication", Toast.LENGTH_LONG).show();
-			finish();
-			return;
-		}
+        Object o = this.getIntent().getExtras().getSerializable(Constants.BUNDLE_KEY_AUTH);
+        authToHijack = (Auth) o;
 
-		boolean mobile = this.getIntent().getExtras().getBoolean("MOBILE");
-		String url = mobile ? authToHijack.getMobileUrl() : authToHijack.getUrl();
+        if (authToHijack == null) {
+            Toast.makeText(this, "There was an error loading this Authentication", Toast.LENGTH_LONG).show();
+            finish();
+            return;
+        }
 
-		setupWebView();
-		setupCookies();
-		webview.loadUrl(url);
-	}
+        boolean mobile = this.getIntent().getExtras().getBoolean("MOBILE");
+        String url = mobile ? authToHijack.getMobileUrl() : authToHijack.getUrl();
 
-	@Override
-	protected void onStop() {
-		super.onPause();
-		finish();
-	}
+        setupWebView();
+        setupCookies();
+        webview.loadUrl(url);
+    }
 
-	@Override
-	protected void onDestroy() {
-		super.onDestroy();
-	}
-	
-	}
+    @Override
+    protected void onStop() {
+        super.onPause();
+        finish();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
+
+}

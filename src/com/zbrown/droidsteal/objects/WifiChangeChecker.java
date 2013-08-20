@@ -28,19 +28,19 @@ import android.os.Message;
 
 public class WifiChangeChecker extends BroadcastReceiver {
 
-	Handler handler = null;
+    Handler handler = null;
 
-	public WifiChangeChecker(Handler handler) {
-		this.handler = handler;
-	}
+    public WifiChangeChecker(Handler handler) {
+        this.handler = handler;
+    }
 
-	@Override
-	public void onReceive(Context context, Intent intent) {
-		Message m = handler.obtainMessage();
-		Bundle b = new Bundle();
-		b.putString("TYPE", "WIFICHANGE");
-		m.setData(b);
-		handler.sendMessage(m);
-	}
+    @Override
+    public void onReceive(Context context, Intent intent) {
+        Message m = handler.obtainMessage();
+        Bundle b = new Bundle();
+        b.putString("TYPE", "WIFICHANGE");
+        m.setData(b);
+        handler.sendMessage(m);
+    }
 
 }
