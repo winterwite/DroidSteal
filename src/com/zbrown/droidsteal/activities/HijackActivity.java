@@ -115,10 +115,10 @@ public class HijackActivity extends Activity implements Constants {
 	public boolean onCreateOptionsMenu(Menu menu) {
 		super.onCreateOptionsMenu(menu);
 		menu.add(0, 0, 0, getString(R.string.back));
-		menu.add(0, 1, 0, getString(R.string.forward));
 		menu.add(1, 2, 0, getString(R.string.reload));
+        menu.add(0, 1, 0, getString(R.string.forward));
+        menu.add(1, 4, 0, getString(R.string.changeurl));
 		menu.add(1, 3, 0, getString(R.string.close));
-		menu.add(1, 4, 0, getString(R.string.changeurl));
 		return true;
 	}
 
