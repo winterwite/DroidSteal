@@ -434,14 +434,21 @@ public class ListenActivity extends Activity implements OnClickListener, OnItemC
     }
 
     @Override
-    public boolean onPrepareOptionsMenu(Menu menu) {
+    public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
         menu.clear();
-        menu.add(0, MENU_WIFILIST_ID, 0, getString(R.string.menu_wifilist));
-        menu.add(0, MENU_CLEAR_SESSIONLIST_ID, 0, getString(R.string.menu_clear_sessionlist));
-        menu.add(0, MENU_CLEAR_BLACKLIST_ID, 0, getString(R.string.menu_blacklist_clear));
-        menu.add(0, MENU_DEBUG_ID, 0, getString(R.string.menu_debug));
-        menu.add(0, MENU_ABOUT_ID, 0, getString(R.string.menu_about));
+
+        MenuItem menu0 = menu.add(0, MENU_CLEAR_SESSIONLIST_ID, 0, getString(R.string.menu_clear_sessionlist));
+        menu0.setIcon(R.drawable.ic_action_cancel);
+        menu0.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+
+        MenuItem menu1 = menu.add(0, MENU_WIFILIST_ID, 0, getString(R.string.menu_wifilist));
+        menu1.setIcon(R.drawable.ic_action_network_wifi);
+        menu1.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
+
+        MenuItem menu2 = menu.add(0, MENU_CLEAR_BLACKLIST_ID, 0, getString(R.string.menu_blacklist_clear));
+        MenuItem menu3 = menu.add(0, MENU_DEBUG_ID, 0, getString(R.string.menu_debug));
+        MenuItem menu4 = menu.add(0, MENU_ABOUT_ID, 0, getString(R.string.menu_about));
         return true;
     }
 
@@ -619,7 +626,7 @@ public class ListenActivity extends Activity implements OnClickListener, OnItemC
 
     private void cleanup() {
         tstatus.setText(getString(R.string.label_not_running));
-        tstatus.setTextColor(Color.YELLOW);
+        tstatus.setTextColor(Color.BLACK);
         pbrunning.setVisibility(View.INVISIBLE);
         Button button = ((Button) findViewById(R.id.bstartstop));
         button.setText("Start");
@@ -657,7 +664,7 @@ public class ListenActivity extends Activity implements OnClickListener, OnItemC
 
         if (listening && !spoofing) {
             tstatus.setText(getString(R.string.label_running));
-            tstatus.setTextColor(Color.YELLOW);
+            tstatus.setTextColor(Color.DKGRAY);
             tstatus.setTextSize(15);
             pbrunning.setVisibility(View.VISIBLE);
         } else if (listening && spoofing) {
@@ -672,7 +679,7 @@ public class ListenActivity extends Activity implements OnClickListener, OnItemC
             pbrunning.setVisibility(View.VISIBLE);
         } else {
             tstatus.setText(getString(R.string.label_not_running));
-            tstatus.setTextColor(Color.YELLOW);
+            tstatus.setTextColor(Color.DKGRAY);
             tstatus.setTextSize(15);
             pbrunning.setVisibility(View.INVISIBLE);
         }

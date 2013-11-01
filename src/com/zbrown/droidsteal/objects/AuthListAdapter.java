@@ -69,9 +69,9 @@ public class AuthListAdapter extends BaseAdapter {
         tv1.setText(auth.getName());
 
         if (auth.isGeneric()) {
-            tv1.setTextColor(Color.YELLOW);
+            tv1.setTextColor(Color.BLACK);
         } else {
-            tv1.setTextColor(Color.GREEN);
+            tv1.setTextColor(Color.BLACK);
         }
 
         if (auth.isGeneric() || auth.getName() == null || auth.getName().equals("")) {
@@ -81,7 +81,7 @@ public class AuthListAdapter extends BaseAdapter {
         }
 
         if (auth.isSaved()) {
-            itemLayout.setBackgroundColor(Color.argb(150, 193, 205, 205));
+            itemLayout.setBackgroundColor(Color.argb(150, 155, 166, 166));
             tv2.setTextColor(Color.BLACK);
         }
 

@@ -88,7 +88,7 @@ public class HijackActivity extends Activity implements Constants {
         webview = (WebView) findViewById(R.id.webviewhijack);
         webview.setWebViewClient(new MyWebViewClient());
         WebSettings webSettings = webview.getSettings();
-        webSettings.setUserAgentString("foo");
+        webSettings.setUserAgentString("Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1667.0 Safari/537.36");
         webSettings.setJavaScriptEnabled(true);
         webSettings.setAppCacheEnabled(false);
         webSettings.setBuiltInZoomControls(true);
@@ -97,6 +97,13 @@ public class HijackActivity extends Activity implements Constants {
             @Override
             public void onProgressChanged(WebView view, int progress) {
                 HijackActivity.this.setProgress(progress * 100);
+                int fprogress = (Window.PROGRESS_END)
+                        / 100 * progress;
+                setProgress(fprogress);
+
+                if (progress == 100) {
+                    setProgressBarIndeterminateVisibility(false);
+                }
             }
         });
     }
@@ -114,9 +121,18 @@ public class HijackActivity extends Activity implements Constants {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
-        menu.add(0, 0, 0, getString(R.string.back));
-        menu.add(1, 2, 0, getString(R.string.reload));
-        menu.add(0, 1, 0, getString(R.string.forward));
+        MenuItem menu0 = menu.add(0, 0, 0, getString(R.string.back));
+        menu0.setIcon(R.drawable.ic_action_back);
+        menu0.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
+
+        MenuItem menu1 = menu.add(1, 2, 0, getString(R.string.reload));
+        menu1.setIcon(R.drawable.ic_action_refresh);
+        menu1.setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
+
+        MenuItem menu2 = menu.add(0, 1, 0, getString(R.string.forward));
+        menu2.setIcon(R.drawable.ic_action_forward);
+        menu2.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
+
         menu.add(1, 4, 0, getString(R.string.changeurl));
         menu.add(1, 3, 0, getString(R.string.close));
         return true;
