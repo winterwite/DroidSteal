@@ -22,14 +22,9 @@ All new builds will be hosted on this repo with GitHub's release system: https:/
 
 All old/unsupported/out-of-date builds are hosted here: http://goo.gl/Iq7JZ
 
-Screenshots
-===========
-Yes, they are rather large...
+
+
 
 ![Screen1][1]
-![Screen2][2]
-![Screen3][3]
 
-[1]: https://dl.dropboxusercontent.com/u/9739196/DS%20Screens%20readme.md%20on%20git/device-2013-06-14-161841.png
-[2]: https://dl.dropboxusercontent.com/u/9739196/DS%20Screens%20readme.md%20on%20git/device-2013-06-14-162105.png
-[3]: https://dl.dropboxusercontent.com/u/9739196/DS%20Screens%20readme.md%20on%20git/device-2013-06-14-162747.png
+[1]: https://dl.dropboxusercontent.com/u/9739196/DS%20Screens%20readme.md%20on%20git/droidsteal_1.3_release.png
