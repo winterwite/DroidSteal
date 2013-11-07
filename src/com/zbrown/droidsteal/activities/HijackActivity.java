@@ -125,16 +125,16 @@ public class HijackActivity extends Activity implements Constants {
         menu0.setIcon(R.drawable.ic_action_back);
         menu0.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
 
-        MenuItem menu1 = menu.add(1, 2, 0, getString(R.string.reload));
-        menu1.setIcon(R.drawable.ic_action_refresh);
-        menu1.setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
+        MenuItem menu1 = menu.add(0, 0, 0, getString(R.string.forward));
+        menu1.setIcon(R.drawable.ic_action_forward);
+        menu1.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
 
-        MenuItem menu2 = menu.add(0, 1, 0, getString(R.string.forward));
-        menu2.setIcon(R.drawable.ic_action_forward);
+        MenuItem menu2 = menu.add(0, 0, 0, getString(R.string.reload));
+        menu2.setIcon(R.drawable.ic_action_refresh);
         menu2.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
 
-        menu.add(1, 4, 0, getString(R.string.changeurl));
-        menu.add(1, 3, 0, getString(R.string.close));
+        MenuItem menu3 = menu.add(0, 0, 0, getString(R.string.changeurl));
+        MenuItem menu4 = menu.add(0, 0, 0, getString(R.string.close));
         return true;
     }
 
