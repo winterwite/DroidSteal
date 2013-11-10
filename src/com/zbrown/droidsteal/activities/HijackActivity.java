@@ -108,15 +108,6 @@ public class HijackActivity extends Activity implements Constants {
         });
     }
 
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if ((keyCode == KeyEvent.KEYCODE_BACK) && webview.canGoBack()) {
-            webview.goBack();
-            return true;
-        }
-        return super.onKeyDown(keyCode, event);
-    }
-
     //Menu Items
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
