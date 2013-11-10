@@ -125,16 +125,16 @@ public class HijackActivity extends Activity implements Constants {
         menu0.setIcon(R.drawable.ic_action_back);
         menu0.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
 
-        MenuItem menu1 = menu.add(0, 0, 0, getString(R.string.forward));
+        MenuItem menu1 = menu.add(0, 1, 0, getString(R.string.forward));
         menu1.setIcon(R.drawable.ic_action_forward);
         menu1.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
 
-        MenuItem menu2 = menu.add(0, 0, 0, getString(R.string.reload));
+        MenuItem menu2 = menu.add(0, 2, 0, getString(R.string.reload));
         menu2.setIcon(R.drawable.ic_action_refresh);
         menu2.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
 
-        MenuItem menu3 = menu.add(0, 0, 0, getString(R.string.changeurl));
-        MenuItem menu4 = menu.add(0, 0, 0, getString(R.string.close));
+        MenuItem menu3 = menu.add(0, 3, 0, getString(R.string.changeurl));
+        MenuItem menu4 = menu.add(0, 4, 0, getString(R.string.close));
         return true;
     }
 
@@ -153,10 +153,10 @@ public class HijackActivity extends Activity implements Constants {
                 webview.reload();
                 break;
             case 3:
-                this.finish();
+                selectURL();
                 break;
             case 4:
-                selectURL();
+                this.finish();
                 break;
         }
         return false;
