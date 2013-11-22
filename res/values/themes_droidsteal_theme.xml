@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Generated with http://android-holo-colors.com -->
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <style name="droidsteal_theme" parent="android:Theme.Light">
+
+    <item name="android:editTextStyle">@style/EditTextdroidsteal_theme</item>
+
+    <item name="android:checkboxStyle">@style/CheckBoxdroidsteal_theme</item>
+
+    <item name="android:radioButtonStyle">@style/RadioButtondroidsteal_theme</item>
+
+    <item name="android:progressBarStyleHorizontal">@style/ProgressBardroidsteal_theme</item>
+
+    <item name="android:seekBarStyle">@style/SeekBardroidsteal_theme</item>
+
+    <item name="android:ratingBarStyle">@style/RatingBardroidsteal_theme</item>
+
+    <item name="android:buttonStyleToggle">@style/Toggledroidsteal_theme</item>
+
+    <item name="android:listViewStyle">@style/ListViewdroidsteal_theme</item>
+
+    <item name="android:listViewWhiteStyle">@style/ListViewdroidsteal_theme.White</item>
+
+    <item name="android:spinnerItemStyle">@style/SpinnerItemdroidsteal_theme</item>
+
+  </style>
+
+</resources>
