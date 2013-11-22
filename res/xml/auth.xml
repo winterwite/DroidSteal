@@ -69,4 +69,13 @@
         <cookiename>HSID</cookiename>
         <cookiename>PREF</cookiename>
     </auth>
+    <auth>
+        <name>Reddit</name>
+        <domain>.reddit.com</domain>
+        <url>http://www.reddit.com</url>
+        <cookiename>reddit_session</cookiename>
+        <cookiename>__utma</cookiename>
+        <cookiename>__utmb</cookiename>
+        <cookiename>__utmc</cookiename>
+    </auth>
 </authdefinitions>
