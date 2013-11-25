@@ -73,6 +73,7 @@
         <name>Reddit</name>
         <domain>.reddit.com</domain>
         <url>http://www.reddit.com</url>
+        <mobileurl>http://i.reddit.com</mobileurl>
         <cookiename>reddit_session</cookiename>
         <cookiename>__utma</cookiename>
         <cookiename>__utmb</cookiename>

@@ -21,12 +21,12 @@
 
 package com.zbrown.droidsteal.activities;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.Window;
@@ -82,6 +82,9 @@ public class HijackActivity extends Activity implements Constants {
         getWindow().requestFeature(Window.FEATURE_PROGRESS);
         setContentView(R.layout.webview);
         CookieSyncManager.createInstance(this);
+
+        ActionBar actionbar = getActionBar();
+        actionbar.setDisplayHomeAsUpEnabled(true);
     }
 
     private void setupWebView() {
@@ -114,11 +117,11 @@ public class HijackActivity extends Activity implements Constants {
         super.onCreateOptionsMenu(menu);
         MenuItem menu0 = menu.add(0, 0, 0, getString(R.string.back));
         menu0.setIcon(R.drawable.ic_action_back);
-        menu0.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
+        menu0.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
 
         MenuItem menu1 = menu.add(0, 1, 0, getString(R.string.forward));
         menu1.setIcon(R.drawable.ic_action_forward);
-        menu1.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
+        menu1.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
 
         MenuItem menu2 = menu.add(0, 2, 0, getString(R.string.reload));
         menu2.setIcon(R.drawable.ic_action_refresh);
