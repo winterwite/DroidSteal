@@ -21,12 +21,12 @@
 
 package com.zbrown.droidsteal.activities;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.Window;
@@ -82,6 +82,9 @@ public class HijackActivity extends Activity implements Constants {
         getWindow().requestFeature(Window.FEATURE_PROGRESS);
         setContentView(R.layout.webview);
         CookieSyncManager.createInstance(this);
+
+        ActionBar actionbar = getActionBar();
+        actionbar.setDisplayHomeAsUpEnabled(true);
     }
 
     private void setupWebView() {
