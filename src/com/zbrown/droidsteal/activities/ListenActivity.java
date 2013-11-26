@@ -418,6 +418,9 @@ public class ListenActivity extends Activity implements OnClickListener, OnItemC
         actElem = authList.get(sessionListViewSelected);
         menu.setHeaderTitle(getString(R.string.menu_choose_page_title));
         menu.add(Menu.NONE, ID_NORMAL, Menu.NONE, getString(R.string.menu_open_normal));
+        if (actElem.getMobileUrl() != null) {
+            menu.add(Menu.NONE, ID_MOBILE, Menu.NONE, getString(R.string.menu_open_mobile));
+        }
         menu.add(Menu.NONE, ID_REMOVEFROMLIST, Menu.NONE, getString(R.string.menu_remove_from_list));
         menu.add(Menu.NONE, ID_BLACKLIST, Menu.NONE, getString(R.string.menu_black_list));
         menu.add(Menu.NONE, ID_EXPORT, Menu.NONE, getString(R.string.menu_export));
@@ -428,9 +431,6 @@ public class ListenActivity extends Activity implements OnClickListener, OnItemC
             menu.add(Menu.NONE, ID_SAVE, Menu.NONE, getString(R.string.menu_save));
         }
 
-        if (actElem.getMobileUrl() != null) {
-            menu.add(Menu.NONE, ID_MOBILE, Menu.NONE, getString(R.string.menu_open_mobile));
-        }
     }
 
     @Override
