@@ -43,7 +43,7 @@
     <string name="menu_helpforum">POMOC!</string>
     <string name="menu_donate">DOTACJA</string>
     <string name="button_ok">Tak</string>
-    <string name="button_abprt">Anuluj</string>
+    <string name="button_abort">Anuluj</string>
     <string name="accept_text">Musisz zaakceptować zasady, by móc korzystać z aplikacji!</string>
     <string name="donatetext">Mam nadzieję, że spodobał Ci się ten program!\n\nDziała on na licencji open source, a więc
         nie czerpię z niego żadnych przychodów. Jeśli jednak chcialbyś wesprzeć mnie w udoskonalaniu DroidSteal, możesz

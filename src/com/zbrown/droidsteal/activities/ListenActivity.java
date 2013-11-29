@@ -461,7 +461,7 @@ public class ListenActivity extends Activity implements OnClickListener, OnItemC
                         public void onClick(DialogInterface dialog, int id) {
                             ListenActivity.this.finish();
                         }
-                    }).setNegativeButton(R.string.button_abprt, new DialogInterface.OnClickListener() {
+                    }).setNegativeButton(R.string.button_abort, new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int id) {
                     dialog.cancel();
                 }
@@ -736,7 +736,7 @@ public class ListenActivity extends Activity implements OnClickListener, OnItemC
                     public void onClick(DialogInterface dialog, int id) {
                         ListenActivity.this.startDebug();
                     }
-                }).setNegativeButton(R.string.button_abprt, new DialogInterface.OnClickListener() {
+                }).setNegativeButton(R.string.button_abort, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 dialog.cancel();
             }

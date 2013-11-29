@@ -46,7 +46,7 @@
     <string name="menu_helpforum">AYUDA!</string>
     <string name="menu_donate">DONACIÓN</string>
     <string name="button_ok">Sí</string>
-    <string name="button_abprt">Abortar</string>
+    <string name="button_abort">Abortar</string>
     <string name="accept_text">Usted debe aceptar esta exención de responsabilidad a fin de utilizar DroidSteal!
     </string>
     <string name="popup_exit">¿Realmente quieres salir DroidSteal? Sí quieres que siga en funcionamiento presiona el

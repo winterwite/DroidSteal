@@ -45,7 +45,7 @@
     <string name="menu_helpforum">HELP!</string>
     <string name="menu_donate">DONATIE</string>
     <string name="button_ok">JA</string>
-    <string name="button_abprt">Abort</string>
+    <string name="button_abort">Abort</string>
     <string name="accept_text">Je moet de akkoord gaan voordat je gebruik kunt maken van DroidSteal!</string>
     <string name="popup_exit">Wil je DroidSteal echt afsluiten? als je wilt dat DroidSteal verder gaat op de achtergrond
         druk op de HOME knop!

@@ -50,7 +50,7 @@
 
     <string name="clear_blacklist">Do you really want to delete all hosts from blacklist?</string>
     <string name="button_ok">Yes</string>
-    <string name="button_abprt">Abort</string>
+    <string name="button_abort">Abort</string>
     <string name="accept_text">You must accept this disclaimer in order to use DroidSteal!</string>
     <string name="popup_exit">Do you really want to exit DroidSteal? If you want to keep it running/listening in the
         background press the HOME button!

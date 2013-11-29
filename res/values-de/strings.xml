@@ -52,7 +52,7 @@
     <string name="menu_helpforum">HILFE!</string>
     <string name="menu_donate">SPENDEN</string>
     <string name="button_ok">Ok</string>
-    <string name="button_abprt">Abbrechen</string>
+    <string name="button_abort">Abbrechen</string>
     <string name="accept_text">Du musst diese Vereinbarung akzeptieren um DroidSteal nutzen zu können!</string>
     <string name="popup_exit">Möchtest du DroidSteal wirklich beenden? Wenn DroidSteal im Hintergrund weiterlaufen soll,
         drücke einfach den HOME Button!

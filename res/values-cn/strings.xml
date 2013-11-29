@@ -42,7 +42,7 @@
 
     <string name="clear_blacklist">确定从黑名单中删除的所有主机吗？</string>
     <string name="button_ok">是</string>
-    <string name="button_abprt">中止</string>
+    <string name="button_abort">中止</string>
     <string name="accept_text">您必须接受DroidSteal使用的免责声明以！</string>
     <string name="popup_exit">确定要退出吗？ 保持后台运行按HOME键！</string>
     <string name="popup_debug">这将启动调试会话。启动监听并收集调试信息。让DroidSteal听几秒钟（至少30），然后按“停止”。再打开包含所有调试信息的电子邮件！</string>

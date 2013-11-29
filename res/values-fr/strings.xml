@@ -47,7 +47,7 @@
     <string name="menu_helpforum">AIDE!</string>
     <string name="menu_donate">DONATION</string>
     <string name="button_ok">Oui</string>
-    <string name="button_abprt">Annuler</string>
+    <string name="button_abort">Annuler</string>
     <string name="accept_text">Vous devez accepter ces conditions afin d\'utiliser DroidSteal!</string>
     <string name="popup_exit">Voulez-vous vraiment quitter DroidSteal? Vous pouvez le laisser fonctionner en arrière
         plan en appuyant sur le bouton HOME!

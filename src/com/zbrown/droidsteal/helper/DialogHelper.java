@@ -33,7 +33,7 @@ public class DialogHelper {
                         DialogHelper.context.startActivity(goToMarket);
                         dialog.cancel();
                     }
-                }).setNegativeButton(R.string.button_abprt, new DialogInterface.OnClickListener() {
+                }).setNegativeButton(R.string.button_abort, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 dialog.cancel();
             }
@@ -64,7 +64,7 @@ public class DialogHelper {
                         DBHelper.clearBlacklist(DialogHelper.context);
                         AuthHelper.clearBlacklist();
                     }
-                }).setNegativeButton(R.string.button_abprt, new DialogInterface.OnClickListener() {
+                }).setNegativeButton(R.string.button_abort, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 dialog.cancel();
             }

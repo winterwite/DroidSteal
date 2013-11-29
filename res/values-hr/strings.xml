@@ -45,7 +45,7 @@
     <string name="menu_helpforum">POMOĆ!</string>
     <string name="menu_donate">DONIRAJ</string>
     <string name="button_ok">Da</string>
-    <string name="button_abprt">Zaustavi</string>
+    <string name="button_abort">Zaustavi</string>
     <string name="accept_text">Morate prihvatiti ove uvjete da bi mogli koristiti DroidSteal!</string>
     <string name="popup_exit">Dali želite zatvoriti DroidSteal? Ukoliko ga želite u pozadini pretisnite HOME gumb!
     </string>

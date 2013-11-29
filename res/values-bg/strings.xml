@@ -45,7 +45,7 @@
     <string name="menu_helpforum">ПОМОЩ!</string>
     <string name="menu_donate">ДАРЕНИЕ</string>
     <string name="button_ok">Да</string>
-    <string name="button_abprt">Отказ</string>
+    <string name="button_abort">Отказ</string>
     <string name="accept_text">Трябва да се съгласите с условията за да използвате DroidSteal!</string>
     <string name="popup_exit">Наистина ли искате да затворите DroidSteal? Ако искате да продължи да работи във фонов
         режим, натиснете HOME бутона!
