@@ -43,7 +43,6 @@ import android.widget.*;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.CompoundButton.OnCheckedChangeListener;
-import com.crashlytics.android.Crashlytics;
 import com.zbrown.droidsteal.R;
 import com.zbrown.droidsteal.auth.Auth;
 import com.zbrown.droidsteal.auth.AuthHelper;
@@ -200,7 +199,6 @@ public class ListenActivity extends Activity implements OnClickListener, OnItemC
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Crashlytics.start(this);
 
 
         if (DEBUG)
@@ -267,7 +265,6 @@ public class ListenActivity extends Activity implements OnClickListener, OnItemC
                 DBHelper.setLastUpdateCheck(this, System.currentTimeMillis());
             }
         } catch (Exception e) {
-            Crashlytics.logException(e);
             Log.e(APPLICATION_TAG, "Error accessing updater DB", e);
         }
     }
@@ -289,7 +286,6 @@ public class ListenActivity extends Activity implements OnClickListener, OnItemC
         try {
             cleanup();
         } catch (Exception e) {
-            Crashlytics.logException(e);
             Log.e(APPLICATION_TAG, "Error while onDestroy", e);
         }
         super.onDestroy();
@@ -321,7 +317,6 @@ public class ListenActivity extends Activity implements OnClickListener, OnItemC
             try {
                 sessionListView.showContextMenuForChild(view);
             } catch (Exception e) {
-                Crashlytics.logException(e);
                 // VERY BAD, but actually cant find out how the NPE happens...
                 // :-(
                 Log.d(APPLICATION_TAG,
@@ -507,10 +502,8 @@ public class ListenActivity extends Activity implements OnClickListener, OnItemC
                 NetworkInterface wifiInterface = NetworkInterface.getByInetAddress(localInet);
                 interfaceName = wifiInterface.getDisplayName();
             } catch (UnknownHostException e) {
-                Crashlytics.logException(e);
                 Log.e(APPLICATION_TAG, "error getting localhost's InetAddress", e);
             } catch (SocketException e) {
-                Crashlytics.logException(e);
                 Log.e(APPLICATION_TAG, "error getting wifi network interface", e);
             }
 
