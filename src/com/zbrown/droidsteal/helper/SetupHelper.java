@@ -93,9 +93,6 @@ public class SetupHelper {
             Log.e(Constants.APPLICATION_TAG, "error checking root access", e);
         } finally {
             try {
-                if (os != null) {
-                    os.close();
-                }
                 if (osRes != null) {
                     osRes.close();
                 }
@@ -179,10 +176,10 @@ public class SetupHelper {
             InputStreamReader osRes = new InputStreamReader(process.getInputStream());
             BufferedReader reader = new BufferedReader(osRes);
 
-            String line = null;
+            String line;
             ListenActivity.debugBuffer.append("\n");
             while ((line = reader.readLine()) != null) {
-                ListenActivity.debugBuffer.append(line + "\n");
+                ListenActivity.debugBuffer.append(line).append("\n");
             }
             process.waitFor();
         } catch (Exception e) {
@@ -197,10 +194,10 @@ public class SetupHelper {
             InputStreamReader osRes = new InputStreamReader(process.getInputStream());
             BufferedReader reader = new BufferedReader(osRes);
 
-            String line = null;
+            String line;
             ListenActivity.debugBuffer.append("\n");
             while ((line = reader.readLine()) != null) {
-                ListenActivity.debugBuffer.append(line + "\n");
+                ListenActivity.debugBuffer.append(line).append("\n");
             }
             process.waitFor();
             process = Runtime.getRuntime().exec("ls -l " + SystemHelper.getARPSpoofBinaryPath(c));
@@ -208,10 +205,10 @@ public class SetupHelper {
             InputStreamReader osRes1 = new InputStreamReader(process.getInputStream());
             BufferedReader reader1 = new BufferedReader(osRes1);
 
-            String line1 = null;
+            String line1;
             ListenActivity.debugBuffer.append("\n");
             while ((line1 = reader1.readLine()) != null) {
-                ListenActivity.debugBuffer.append(line1 + "\n");
+                ListenActivity.debugBuffer.append(line1).append("\n");
             }
             process.waitFor();
         } catch (Exception e) {

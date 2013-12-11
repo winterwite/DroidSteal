@@ -44,11 +44,11 @@ public class SystemHelper {
                 Log.d(Constants.APPLICATION_TAG, "Command: " + command);
             }
             if (debug) {
-                ListenActivity.debugBuffer.append("executing command: " + command + "\n");
+                ListenActivity.debugBuffer.append("executing command: ").append(command).append("\n");
             }
             process.getOutputStream().write((command + "\n").getBytes("ASCII"));
             process.getOutputStream().flush();
-            if (Constants.DEBUG || ListenActivity.debugging) {
+            if (ListenActivity.debugging) {
                 StringBuffer sb = new StringBuffer();
                 BufferedReader bre = new BufferedReader(new InputStreamReader(process.getErrorStream()));
                 Thread.sleep(10);
@@ -59,7 +59,7 @@ public class SystemHelper {
                 if (!s.replaceAll(" ", "").equalsIgnoreCase("")) {
                     Log.e(Constants.APPLICATION_TAG, "Error with command: " + s);
                     if (debug) {
-                        ListenActivity.debugBuffer.append("Error with command: " + command + ": " + s + "\n");
+                        ListenActivity.debugBuffer.append("Error with command: ").append(command).append(": ").append(s).append("\n");
                     }
                     return false;
                 }
@@ -73,7 +73,7 @@ public class SystemHelper {
                 if (!s.replaceAll(" ", "").equalsIgnoreCase("")) {
                     Log.e(Constants.APPLICATION_TAG, "Output from command: " + s);
                     if (debug) {
-                        ListenActivity.debugBuffer.append("Output from command: " + command + ": " + s + "\n");
+                        ListenActivity.debugBuffer.append("Output from command: ").append(command).append(": ").append(s).append("\n");
                     }
                     return false;
                 }
@@ -94,7 +94,7 @@ public class SystemHelper {
             Process process = new ProcessBuilder().command("su").start();
             process.getOutputStream().write((command + "\n").getBytes("ASCII"));
             process.getOutputStream().flush();
-            if (Constants.DEBUG || ListenActivity.debugging) {
+            if (ListenActivity.debugging) {
                 StringBuffer sb = new StringBuffer();
                 BufferedReader bre = new BufferedReader(new InputStreamReader(process.getErrorStream()));
                 Thread.sleep(10);
@@ -105,7 +105,7 @@ public class SystemHelper {
                 if (!s.replaceAll(" ", "").equalsIgnoreCase("")) {
                     Log.e(Constants.APPLICATION_TAG, "Error with command: " + sb.toString());
                     if (debug) {
-                        ListenActivity.debugBuffer.append("Error with command: " + command + ": " + s + "\n");
+                        ListenActivity.debugBuffer.append("Error with command: ").append(command).append(": ").append(s).append("\n");
                     }
                 }
                 sb = new StringBuffer();
@@ -118,7 +118,7 @@ public class SystemHelper {
                 if (!s.replaceAll(" ", "").equalsIgnoreCase("")) {
                     Log.e(Constants.APPLICATION_TAG, "Output from command: " + s);
                     if (debug) {
-                        ListenActivity.debugBuffer.append("Output from command: " + command + ": " + s + "\n");
+                        ListenActivity.debugBuffer.append("Output from command: ").append(command).append(": ").append(s).append("\n");
                     }
                 }
             }
@@ -200,8 +200,8 @@ public class SystemHelper {
     }
 
     public static void debugInformation(Context c) {
-        ListenActivity.debugBuffer.append("Droidsheep path: " + getDroidSheepBinaryPath(c) + "\n");
-        ListenActivity.debugBuffer.append("ARPSPoof Path: " + getARPSpoofBinaryPath(c) + "\n");
+        ListenActivity.debugBuffer.append("Droidsheep path: ").append(getDroidSheepBinaryPath(c)).append("\n");
+        ListenActivity.debugBuffer.append("ARPSPoof Path: ").append(getARPSpoofBinaryPath(c)).append("\n");
         ListenActivity.debugBuffer.append("Testing SU\n");
         execNewSUCommand("", true);
     }

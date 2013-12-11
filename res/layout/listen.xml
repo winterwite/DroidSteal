@@ -12,7 +12,7 @@
             android:ellipsize="end"
             android:lines="1"
             android:textStyle="bold"
-            android:textSize="13dip"
+            android:textSize="13sp"
             android:textColor="#000000"
             android:gravity="center_horizontal"
             android:singleLine="true"
@@ -22,7 +22,7 @@
             android:text="TEST"
             android:id="@+id/spoofaddress"
             android:ellipsize="end"
-            android:textSize="13dip"
+            android:textSize="13sp"
             android:lines="1"
             android:textStyle="bold"
             android:textColor="#000000"
@@ -71,7 +71,7 @@
                 android:id="@+id/progressBar1"
                 android:visibility="invisible"
                 android:layout_width="wrap_content"
-                android:layout_height="fill_parent"></ProgressBar>
+                android:layout_height="fill_parent"/>
         <TextView
                 android:text="TEST"
                 android:layout_weight=".50"
@@ -89,6 +89,6 @@
                 android:id="@+id/bstartstop"
                 android:enabled="true"
                 android:textSize="12sp"
-                android:text="Start"></Button>
+                android:text="@string/button_start"/>
     </LinearLayout>
 </LinearLayout>

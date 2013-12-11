@@ -82,7 +82,7 @@ public class AuthDefinition {
                 cookieList.add(new CookieWrapper(cookie, url));
             }
         }
-        if (cookieList != null && !cookieList.isEmpty() && cookieList.size() == cookieNames.size()) {
+        if (!cookieList.isEmpty() && cookieList.size() == cookieNames.size()) {
             return new Auth(cookieList, url, mobileurl, getIdFromWebservice(cookieList), lst[2], this.name);
         }
         return null;

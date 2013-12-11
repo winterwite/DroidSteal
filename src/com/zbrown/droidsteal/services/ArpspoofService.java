@@ -42,17 +42,8 @@ import java.io.IOException;
 
 public class ArpspoofService extends IntentService {
 
-    private final String IPV4_FILEPATH = "/proc/sys/net/ipv4/ip_forward";
-
-    private final String IPTABLES_CLEAR_NAT = "iptables -t nat -F";
-    private final String IPTABLES_CLEAR = "iptables -F";
-    private final String IPTABLES_POSTROUTE = "iptables -t nat -I POSTROUTING -s 0/0 -j MASQUERADE";
-    private final String IPTABLES_ACCEPT_ALL = "iptables -P FORWARD ACCEPT";
-
     private static final String TAG = "ArpspoofService";
     private volatile Thread myThread;
-    private static volatile WifiManager.WifiLock wifiLock;
-    private static volatile PowerManager.WakeLock wakeLock;
 
     public ArpspoofService() {
         super("ArpspoofService");
@@ -67,17 +58,22 @@ public class ArpspoofService extends IntentService {
         final String command = localBin + " -s 1 -i " + wifiInterface + " " + gateway;
 
         SystemHelper.execSUCommand("chmod 777 " + SystemHelper.getARPSpoofBinaryPath(this), ListenActivity.debugging);
+        String IPV4_FILEPATH = "/proc/sys/net/ipv4/ip_forward";
         SystemHelper.execSUCommand("echo 1 > " + IPV4_FILEPATH, ListenActivity.debugging);
 
+        String IPTABLES_CLEAR = "iptables -F";
         SystemHelper.execSUCommand(IPTABLES_CLEAR, ListenActivity.debugging);
+        String IPTABLES_CLEAR_NAT = "iptables -t nat -F";
         SystemHelper.execSUCommand(IPTABLES_CLEAR_NAT, ListenActivity.debugging);
+        String IPTABLES_POSTROUTE = "iptables -t nat -I POSTROUTING -s 0/0 -j MASQUERADE";
         SystemHelper.execSUCommand(IPTABLES_POSTROUTE, ListenActivity.debugging);
+        String IPTABLES_ACCEPT_ALL = "iptables -P FORWARD ACCEPT";
         SystemHelper.execSUCommand(IPTABLES_ACCEPT_ALL, ListenActivity.debugging);
 
         PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
         WifiManager wm = (WifiManager) getSystemService(Context.WIFI_SERVICE);
-        wifiLock = wm.createWifiLock(WifiManager.WIFI_MODE_FULL, "wifiLock");
-        wakeLock = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "wakeLock");
+        WifiManager.WifiLock wifiLock = wm.createWifiLock(WifiManager.WIFI_MODE_FULL, "wifiLock");
+        PowerManager.WakeLock wakeLock = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "wakeLock");
         wifiLock.acquire();
         wakeLock.acquire();
         try {

@@ -66,8 +66,6 @@ public class ListenActivity extends Activity implements OnClickListener, OnItemC
     private static ArrayList<Auth> authListUnsynchronized = new ArrayList<Auth>();
     public static List<Auth> authList = Collections.synchronizedList(authListUnsynchronized);
 
-    public static boolean disclaimerAccepted = false;
-
     private SessionListView sessionListView;
     private TextView tstatus;
     private TextView tnetworkName;
@@ -77,9 +75,7 @@ public class ListenActivity extends Activity implements OnClickListener, OnItemC
     private int sessionListViewSelected;
 
     private boolean networkEncryptionWPA = false;
-    private String networkName = "";
     private String gatewayIP = "";
-    private String localhostIP = "";
 
     //	public static boolean unrooted = false;
 
@@ -169,8 +165,6 @@ public class ListenActivity extends Activity implements OnClickListener, OnItemC
                 }
             }
         }
-
-        ;
     };
 
     RefreshHandler refreshHandler = new RefreshHandler();
@@ -309,19 +303,17 @@ public class ListenActivity extends Activity implements OnClickListener, OnItemC
             sessionListView = (SessionListView) findViewById(R.id.sessionlist);
         }
 
-        if (view != null) {
-            sessionListViewSelected = position;
-            // SpoofURL =
-            // ((TextView)view.findViewById(R.id.listtext1)).getText().toString();
-            // auth = ListenActivity.authList.get(position);
-            try {
-                sessionListView.showContextMenuForChild(view);
-            } catch (Exception e) {
-                // VERY BAD, but actually cant find out how the NPE happens...
-                // :-(
-                Log.d(APPLICATION_TAG,
-                        "error on click: " + e.getLocalizedMessage());
-            }
+        sessionListViewSelected = position;
+        // SpoofURL =
+        // ((TextView)view.findViewById(R.id.listtext1)).getText().toString();
+        // auth = ListenActivity.authList.get(position);
+        try {
+            sessionListView.showContextMenuForChild(view);
+        } catch (Exception e) {
+            // VERY BAD, but actually cant find out how the NPE happens...
+            // :-(
+            Log.d(APPLICATION_TAG,
+                    "error on click: " + e.getLocalizedMessage());
         }
     }
 
@@ -355,7 +347,7 @@ public class ListenActivity extends Activity implements OnClickListener, OnItemC
     }
 
     public boolean onContextItemSelected(MenuItem item) {
-        Auth a = null;
+        Auth a;
         switch (item.getItemId()) {
             case ID_MOBILE:
                 click(sessionListViewSelected, true);
@@ -407,7 +399,7 @@ public class ListenActivity extends Activity implements OnClickListener, OnItemC
 
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenuInfo menuInfo) {
-        Auth actElem = null;
+        Auth actElem;
         if (sessionListViewSelected >= authList.size())
             return;
         actElem = authList.get(sessionListViewSelected);
@@ -441,9 +433,9 @@ public class ListenActivity extends Activity implements OnClickListener, OnItemC
         menu1.setIcon(R.drawable.ic_action_network_wifi);
         menu1.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
 
-        MenuItem menu2 = menu.add(0, MENU_CLEAR_BLACKLIST_ID, 0, getString(R.string.menu_blacklist_clear));
-        MenuItem menu3 = menu.add(0, MENU_DEBUG_ID, 0, getString(R.string.menu_debug));
-        MenuItem menu4 = menu.add(0, MENU_ABOUT_ID, 0, getString(R.string.menu_about));
+        menu.add(0, MENU_CLEAR_BLACKLIST_ID, 0, getString(R.string.menu_blacklist_clear));
+        menu.add(0, MENU_DEBUG_ID, 0, getString(R.string.menu_debug));
+        menu.add(0, MENU_ABOUT_ID, 0, getString(R.string.menu_about));
         return true;
     }
 
@@ -489,7 +481,7 @@ public class ListenActivity extends Activity implements OnClickListener, OnItemC
         if (localhost != 0) {
             wManager.getConnectionInfo();
             gatewayIP = Formatter.formatIpAddress(wManager.getDhcpInfo().gateway);
-            localhostIP = Formatter.formatIpAddress(localhost);
+            String localhostIP = Formatter.formatIpAddress(localhost);
             //If nothing was entered for the ip address use the gateway
             if (gatewayIP.trim().equals(""))
                 gatewayIP = Formatter.formatIpAddress(wManager.getDhcpInfo().gateway);
@@ -517,6 +509,7 @@ public class ListenActivity extends Activity implements OnClickListener, OnItemC
             try {
                 Thread.sleep(500);
             } catch (InterruptedException e) {
+                Log.e(APPLICATION_TAG, "Error with Thread.sleep(500)", e);
             }
             startService(intent);
         } else {
@@ -533,6 +526,7 @@ public class ListenActivity extends Activity implements OnClickListener, OnItemC
         try {
             Thread.sleep(200);
         } catch (InterruptedException e) {
+            Log.e(APPLICATION_TAG, "Error with Thread.sleep(200)", e);
         }
     }
 
@@ -544,6 +538,7 @@ public class ListenActivity extends Activity implements OnClickListener, OnItemC
         try {
             Thread.sleep(200);
         } catch (InterruptedException e) {
+            Log.e(APPLICATION_TAG, "Error with Thread.sleep(200)", e);
         }
     }
 
@@ -572,7 +567,7 @@ public class ListenActivity extends Activity implements OnClickListener, OnItemC
             Toast.makeText(this.getApplicationContext(), "No Auth available...", Toast.LENGTH_SHORT).show();
             return;
         }
-        Auth a = null;
+        Auth a;
         if (id < authList.size() && authList.get(id) != null) {
             a = authList.get(id);
         } else {
@@ -606,6 +601,7 @@ public class ListenActivity extends Activity implements OnClickListener, OnItemC
             try {
                 Thread.sleep(500);
             } catch (InterruptedException e) {
+                Log.e(APPLICATION_TAG, "Error with Thread.sleep(500)", e);
             }
             startService(intent);
             bstartstop.setText("Stop");
@@ -660,12 +656,12 @@ public class ListenActivity extends Activity implements OnClickListener, OnItemC
             tstatus.setTextColor(Color.DKGRAY);
             tstatus.setTextSize(15);
             pbrunning.setVisibility(View.VISIBLE);
-        } else if (listening && spoofing) {
+        } else if (listening) {
             tstatus.setText(getString(R.string.label_running_and_spoofing));
             tstatus.setTextColor(Color.GREEN);
             tstatus.setTextSize(15);
             pbrunning.setVisibility(View.VISIBLE);
-        } else if (!listening && spoofing) {
+        } else if (spoofing) {
             tstatus.setText(getString(R.string.label_not_running_and_spoofing));
             tstatus.setTextColor(Color.RED); //This shouldn't occur usually
             tstatus.setTextSize(15);
@@ -685,10 +681,10 @@ public class ListenActivity extends Activity implements OnClickListener, OnItemC
 
         if (wifiInfo == null) {
             networkEncryptionWPA = false;
-            networkName = "- None -";
+            String networkName = "- None -";
             tnetworkName.setText(getString(R.string.label_networkname_pref) + networkName.toUpperCase(Locale.getDefault()));
         } else {
-            networkName = wifiInfo.getSSID() != null ? " " + wifiInfo.getSSID() : "";
+            String networkName = wifiInfo.getSSID() != null ? " " + wifiInfo.getSSID() : "";
             tnetworkName.setText(getString(R.string.label_networkname_pref) + networkName.toUpperCase(Locale.getDefault()));
         }
         TextView tspoof = (TextView) findViewById(R.id.spoofaddress);

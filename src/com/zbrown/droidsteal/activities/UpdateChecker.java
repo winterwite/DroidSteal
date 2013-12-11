@@ -182,12 +182,11 @@ public class UpdateChecker {
 			/* Get current Version Number */
             String curVersion = context.getPackageManager().getPackageInfo(
                     context.getPackageName(), 0).versionName;
-            String newVersion = s;
 
             Log.d(TAG, "Current version is: " + curVersion
-                    + " and new one is: " + newVersion);
+                    + " and new one is: " + s);
             /* Is a higher version than the current already out? */
-            if (!curVersion.equals(newVersion)) {
+            if (!curVersion.equals(s)) {
 				/* Post a Handler for the UI to pick up and open the Dialog */
                 if (alertUpdate == null || !alertUpdate.isShowing()) {
                     if (alertError != null && alertError.isShowing())
@@ -196,7 +195,7 @@ public class UpdateChecker {
                 }
             } else
                 Log.v(TAG, "The software is updated to the latest version: "
-                        + newVersion);
+                        + s);
         } catch (Exception e) {
             e.printStackTrace();
             // if(alertError==null || !alertError.isShowing())
@@ -243,7 +242,7 @@ public class UpdateChecker {
 
                 // here's the download code
                 byte[] buffer = new byte[1024];
-                int readLength = 0;
+                int readLength;
                 long total = 0;
                 int lastProgress = 0;
 

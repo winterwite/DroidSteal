@@ -61,6 +61,7 @@ public class HijackActivity extends Activity implements Constants {
             try {
                 Thread.sleep(3000);
             } catch (InterruptedException e) {
+                Log.e(APPLICATION_TAG, "Error with Thread.sleep(3000)", e);
             }
             Log.i(APPLICATION_TAG, "Cookiemanager has still cookies: " + (manager.hasCookies() ? "YES" : "NO"));
         }
@@ -92,7 +93,7 @@ public class HijackActivity extends Activity implements Constants {
         webview.setWebViewClient(new MyWebViewClient());
         WebSettings webSettings = webview.getSettings();
         webSettings.setUserAgentString("Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1667.0 Safari/537.36");
-        webSettings.setJavaScriptEnabled(true);
+        webSettings.setJavaScriptEnabled(true); //Blah blah JavaScript is scary blah blah
         webSettings.setAppCacheEnabled(false);
         webSettings.setBuiltInZoomControls(true);
         webSettings.setDisplayZoomControls(false);
@@ -127,8 +128,8 @@ public class HijackActivity extends Activity implements Constants {
         menu2.setIcon(R.drawable.ic_action_refresh);
         menu2.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
 
-        MenuItem menu3 = menu.add(0, 3, 0, getString(R.string.changeurl));
-        MenuItem menu4 = menu.add(0, 4, 0, getString(R.string.close));
+        menu.add(0, 3, 0, getString(R.string.changeurl));
+        menu.add(0, 4, 0, getString(R.string.close));
         return true;
     }
 

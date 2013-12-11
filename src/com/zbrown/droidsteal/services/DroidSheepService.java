@@ -17,8 +17,6 @@ import java.io.IOException;
 public class DroidSheepService extends IntentService {
 
     private volatile Thread myThread;
-    private static volatile WifiManager.WifiLock wifiLock;
-    private static volatile PowerManager.WakeLock wakeLock;
 
     public DroidSheepService() {
         super("ListenService");
@@ -31,8 +29,8 @@ public class DroidSheepService extends IntentService {
         PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
         WifiManager wm = (WifiManager) getSystemService(Context.WIFI_SERVICE);
 
-        wifiLock = wm.createWifiLock(WifiManager.WIFI_MODE_FULL, "wifiLock");
-        wakeLock = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "wakeLock");
+        WifiManager.WifiLock wifiLock = wm.createWifiLock(WifiManager.WIFI_MODE_FULL, "wifiLock");
+        PowerManager.WakeLock wakeLock = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "wakeLock");
         wifiLock.acquire();
         wakeLock.acquire();
 

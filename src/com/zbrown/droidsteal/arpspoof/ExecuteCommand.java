@@ -88,7 +88,7 @@ public class ExecuteCommand extends Thread {
                             Log.d(Constants.APPLICATION_TAG, line);
                         }
                         if (ListenActivity.debugging) {
-                            ListenActivity.debugBuffer.append("command: " + command + "line: " + line + "\n");
+                            ListenActivity.debugBuffer.append("command: ").append(command).append("line: ").append(line).append("\n");
                         }
                         if (listen) {
                             AuthHelper.process(line);
@@ -114,7 +114,7 @@ public class ExecuteCommand extends Thread {
                 Log.d(Constants.APPLICATION_TAG, "COMMAND: " + command);
             }
             if (ListenActivity.debugging) {
-                ListenActivity.debugBuffer.append("executing command: " + command + "\n");
+                ListenActivity.debugBuffer.append("executing command: ").append(command).append("\n");
             }
             os.writeBytes(command + '\n');
             os.flush();

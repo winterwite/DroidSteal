@@ -11,8 +11,8 @@ public class MailHelper {
         StringBuffer sb = new StringBuffer();
         for (CookieWrapper cw : a.getCookies()) {
             sb.append("[Cookie: \n");
-            sb.append("domain: " + cw.getCookie().getDomain() + "\n");
-            sb.append("path: " + cw.getCookie().getPath() + "\n");
+            sb.append("domain: ").append(cw.getCookie().getDomain()).append("\n");
+            sb.append("path: ").append(cw.getCookie().getPath()).append("\n");
             sb.append(cw.getCookie().getName());
             sb.append("=");
             sb.append(cw.getCookie().getValue());
