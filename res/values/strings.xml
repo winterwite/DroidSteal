@@ -69,8 +69,7 @@
     <string name="close">Close</string>
     <string name="reload">Refresh</string>
     <string name="about">DroidSteal, Network Penetration and Administration re-imagined and redesigned. \n\nDroidSteal
-        is Open Source \n\nVersion 1.3.1 \n\nCreated by Zach Brown (Zbob750) \n\nFor use only on networks that you have
-        permission for.
+        is Open Source \n\nVersion 1.3.1 \n\nFor use only on networks that you have permission for.
     </string>
     <string name="menu_about">About</string>
     <string name="button_close">Dismiss</string>
