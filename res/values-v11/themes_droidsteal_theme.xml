@@ -11,13 +11,13 @@
 
     <item name="android:listChoiceIndicatorSingle">@drawable/btn_radio_holo_light</item>
 
-    <item name="android:progressBarStyleHorizontal">@style/ProgressBardroidsteal_theme</item>
+    <item name="android:progressBarStyleHorizontal">@style/ProgressBar_droidsteal_theme</item>
 
-    <item name="android:seekBarStyle">@style/SeekBardroidsteal_theme</item>
+    <item name="android:seekBarStyle">@style/SeekBar_droidsteal_theme</item>
 
-    <item name="android:ratingBarStyle">@style/RatingBardroidsteal_theme</item>
+    <item name="android:ratingBarStyle">@style/RatingBar_droidsteal_theme</item>
 
-    <item name="android:buttonStyleToggle">@style/Toggledroidsteal_theme</item>
+    <item name="android:buttonStyleToggle">@style/Toggle_droidsteal_theme</item>
 
     <item name="android:listChoiceBackgroundIndicator">@drawable/list_selector_holo_light</item>
 

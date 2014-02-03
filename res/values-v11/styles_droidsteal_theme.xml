@@ -3,23 +3,23 @@
 <!-- Generated with http://android-holo-colors.com -->
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
 
-  <style name="ProgressBardroidsteal_theme" parent="android:Widget.Holo.Light.ProgressBar.Horizontal">
+  <style name="ProgressBar_droidsteal_theme" parent="android:Widget.Holo.Light.ProgressBar.Horizontal">
       <item name="android:progressDrawable">@drawable/progress_horizontal_holo_light</item>
       <item name="android:indeterminateDrawable">@drawable/progress_indeterminate_horizontal_holo_light</item>
   </style>
 
-  <style name="SeekBardroidsteal_theme" parent="android:Widget.Holo.Light.SeekBar">
+  <style name="SeekBar_droidsteal_theme" parent="android:Widget.Holo.Light.SeekBar">
       <item name="android:progressDrawable">@drawable/scrubber_progress_horizontal_holo_light</item>
       <item name="android:indeterminateDrawable">@drawable/scrubber_progress_horizontal_holo_light</item>
       <item name="android:thumb">@drawable/scrubber_control_selector_holo_light</item>
   </style>
 
-  <style name="RatingBardroidsteal_theme" parent="android:Widget.Holo.Light.RatingBar">
+  <style name="RatingBar_droidsteal_theme" parent="android:Widget.Holo.Light.RatingBar">
       <item name="android:progressDrawable">@drawable/ratingbar_full_holo_light</item>
       <item name="android:indeterminateDrawable">@drawable/ratingbar_full_holo_light</item>
   </style>
 
-  <style name="Toggledroidsteal_theme" parent="android:Widget.Holo.Light.Button.Toggle">
+  <style name="Toggle_droidsteal_theme" parent="android:Widget.Holo.Light.Button.Toggle">
       <item name="android:background">@drawable/btn_toggle_holo_light</item>
   </style>
 

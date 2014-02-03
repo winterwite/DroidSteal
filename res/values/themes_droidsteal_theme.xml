@@ -5,25 +5,25 @@
 
   <style name="droidsteal_theme" parent="android:Theme.Light">
 
-    <item name="android:editTextStyle">@style/EditTextdroidsteal_theme</item>
+    <item name="android:editTextStyle">@style/EditText_droidsteal_theme</item>
 
-    <item name="android:checkboxStyle">@style/CheckBoxdroidsteal_theme</item>
+    <item name="android:checkboxStyle">@style/CheckBox_droidsteal_theme</item>
 
-    <item name="android:radioButtonStyle">@style/RadioButtondroidsteal_theme</item>
+    <item name="android:radioButtonStyle">@style/RadioButton_droidsteal_theme</item>
 
-    <item name="android:progressBarStyleHorizontal">@style/ProgressBardroidsteal_theme</item>
+    <item name="android:progressBarStyleHorizontal">@style/ProgressBar_droidsteal_theme</item>
 
-    <item name="android:seekBarStyle">@style/SeekBardroidsteal_theme</item>
+    <item name="android:seekBarStyle">@style/SeekBar_droidsteal_theme</item>
 
-    <item name="android:ratingBarStyle">@style/RatingBardroidsteal_theme</item>
+    <item name="android:ratingBarStyle">@style/RatingBar_droidsteal_theme</item>
 
-    <item name="android:buttonStyleToggle">@style/Toggledroidsteal_theme</item>
+    <item name="android:buttonStyleToggle">@style/Toggle_droidsteal_theme</item>
 
-    <item name="android:listViewStyle">@style/ListViewdroidsteal_theme</item>
+    <item name="android:listViewStyle">@style/ListView_droidsteal_theme</item>
 
-    <item name="android:listViewWhiteStyle">@style/ListViewdroidsteal_theme.White</item>
+    <item name="android:listViewWhiteStyle">@style/ListView_droidsteal_theme.White</item>
 
-    <item name="android:spinnerItemStyle">@style/SpinnerItemdroidsteal_theme</item>
+    <item name="android:spinnerItemStyle">@style/SpinnerItem_droidsteal_theme</item>
 
   </style>
 
