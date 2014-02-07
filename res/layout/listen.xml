@@ -4,8 +4,6 @@
         android:layout_height="fill_parent"
         android:padding="6dp"
         android:orientation="vertical">
-    <!-- <Button android:layout_width="fill_parent" android:id="@+id/bspoof" android:layout_height="wrap_content" android:enabled="true" android:text="start ARP spoofing"></Button> -->
-
     <TextView
             android:text="TEST"
             android:id="@+id/networkname"
