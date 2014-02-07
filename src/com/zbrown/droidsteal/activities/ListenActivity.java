@@ -21,6 +21,7 @@
 
 package com.zbrown.droidsteal.activities;
 
+import android.annotation.SuppressLint;
 import android.app.*;
 import android.app.ActivityManager.RunningServiceInfo;
 import android.content.Context;
@@ -30,6 +31,7 @@ import android.content.IntentFilter;
 import android.graphics.Color;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -120,7 +122,7 @@ public class ListenActivity extends Activity implements OnClickListener, OnItemC
                     authList.add(pos, a);
                 }
                 ListenActivity.this.refresh();
-                ListenActivity.this.notifyUser(false);
+                ListenActivity.this.notifyUser(false, a);
             } else if (type != null && type.equals(BUNDLE_TYPE_LOADAUTH)) {
                 Serializable serializable = msg.getData().getSerializable(BUNDLE_KEY_AUTH);
                 if (serializable == null || !(serializable instanceof Auth)) {
@@ -132,7 +134,7 @@ public class ListenActivity extends Activity implements OnClickListener, OnItemC
                     ListenActivity.authList.add(0, a);
                 }
                 ListenActivity.this.refresh();
-                ListenActivity.this.notifyUser(false);
+                ListenActivity.this.notifyUser(false, a);
             } else if (type != null && type.equals(BUNDLE_TYPE_START)) {
                 Button button = (Button) findViewById(R.id.bstartstop);
                 button.setEnabled(false);
@@ -148,7 +150,7 @@ public class ListenActivity extends Activity implements OnClickListener, OnItemC
                         stopSpoofing();
                     }
                     startListening();
-                    notifyUser(true);
+                    notifyUser(true, null);
                     refreshHandler.sleep();
                 }
                 button.setEnabled(true);
@@ -695,26 +697,50 @@ public class ListenActivity extends Activity implements OnClickListener, OnItemC
         }
     }
 
-    private void notifyUser(boolean persistent) {
+    @SuppressLint("NewApi") // if statement should handle these API issues
+    private void notifyUser(boolean persistent, Auth auth) {
         if (lastNotification >= authList.size())
             return;
         lastNotification = authList.size();
 
         int icon = R.drawable.droidsteal_notification;
         long when = System.currentTimeMillis();
-        Notification notification = new Notification(icon, getString(R.string.notification_title), when);
 
         Context context = getApplicationContext();
         Intent notificationIntent = new Intent(ListenActivity.this, ListenActivity.class);
         PendingIntent contentIntent = PendingIntent.getActivity(this, 0, notificationIntent, 0);
 
+        String notificationTitle = "DroidSteal is listening for sessions";
+        String notificationText = auth != null ? auth.getUrl() : getString(R.string.notification_text);
+
         if (persistent) {
-            notification.setLatestEventInfo(context, "DroidSteal is listening for sessions",
-                    getString(R.string.notification_text), contentIntent);
+            notificationTitle = "DroidSteal is listening for sessions";
         } else {
-            notification.setLatestEventInfo(context, getString(R.string.notification_title),
-                    getString(R.string.notification_text), contentIntent);
+            notificationTitle = getString(R.string.notification_title);
         }
+
+        Notification notification = null;
+        int currentapiVersion = android.os.Build.VERSION.SDK_INT;
+
+        if (currentapiVersion >= Build.VERSION_CODES.JELLY_BEAN) {
+            notification = new Notification.Builder(context)
+                    .setContentTitle(notificationTitle)
+                    .setContentText(notificationText)
+                    .setSmallIcon(icon)
+                    .setContentIntent(contentIntent)
+                    .build(); // Above if statement should handle API issues
+        } else {
+            Notification notificationICS = new Notification(icon, getString(R.string.notification_title), when);
+            if (persistent) {
+                notificationICS.setLatestEventInfo(context, notificationTitle,
+                        getString(R.string.notification_text), contentIntent);
+            } else {
+                notificationICS.setLatestEventInfo(context, getString(R.string.notification_title),
+                        getString(R.string.notification_text), contentIntent);
+            }
+
+        }
+
         mNotificationManager.notify(NOTIFICATION_ID, notification);
     }
 

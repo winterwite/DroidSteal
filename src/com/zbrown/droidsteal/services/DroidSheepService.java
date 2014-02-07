@@ -25,7 +25,7 @@ public class DroidSheepService extends IntentService {
     @Override
     public void onHandleIntent(Intent intent) {
         final String command = SystemHelper.getDroidSheepBinaryPath(this);
-        SystemHelper.execSUCommand("chmod 777 " + SystemHelper.getDroidSheepBinaryPath(this), ListenActivity.debugging);
+        SystemHelper.execSUCommand("chmod 775 " + SystemHelper.getDroidSheepBinaryPath(this), ListenActivity.debugging);
         PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
         WifiManager wm = (WifiManager) getSystemService(Context.WIFI_SERVICE);
 
