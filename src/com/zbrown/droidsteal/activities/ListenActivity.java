@@ -741,7 +741,12 @@ public class ListenActivity extends Activity implements OnClickListener, OnItemC
 
         }
 
-        mNotificationManager.notify(NOTIFICATION_ID, notification);
+        if (notification != null) {
+            mNotificationManager.notify(NOTIFICATION_ID, notification);
+        } else {
+            CharSequence text = "The notification was null. Please report this immediately.";
+            Toast.makeText(getApplicationContext(), text, Toast.LENGTH_LONG).show();
+        }
     }
 
     private void askDebug() {
