@@ -729,6 +729,7 @@ public class ListenActivity extends Activity implements OnClickListener, OnItemC
                     .setSmallIcon(icon)
                     .setContentIntent(contentIntent)
                     .build(); // Above if statement should handle API issues
+            mNotificationManager.notify(NOTIFICATION_ID, notification);
         } else {
             Notification notificationICS = new Notification(icon, getString(R.string.notification_title), when);
             if (persistent) {
@@ -738,14 +739,7 @@ public class ListenActivity extends Activity implements OnClickListener, OnItemC
                 notificationICS.setLatestEventInfo(context, getString(R.string.notification_title),
                         getString(R.string.notification_text), contentIntent);
             }
-
-        }
-
-        if (notification != null) {
-            mNotificationManager.notify(NOTIFICATION_ID, notification);
-        } else {
-            CharSequence text = "The notification was null. Please report this immediately.";
-            Toast.makeText(getApplicationContext(), text, Toast.LENGTH_LONG).show();
+            mNotificationManager.notify(NOTIFICATION_ID, notificationICS);
         }
     }
 
