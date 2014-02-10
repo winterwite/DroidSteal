@@ -187,7 +187,7 @@ public class UpdateChecker {
                     + " and new one is: " + s);
             /* Is a higher version than the current already out? */
             if (!curVersion.equals(s)) {
-				/* Post a Handler for the UI to pick up and open the Dialog */
+                /* Post a Handler for the UI to pick up and open the Dialog */
                 if (alertUpdate == null || !alertUpdate.isShowing()) {
                     if (alertError != null && alertError.isShowing())
                         alertError.dismiss();
