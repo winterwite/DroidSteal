@@ -24,6 +24,7 @@
     <string name="label_status_disconnected">Network status: DISCONNECTED</string>
 
     <string name="notification_title">Session Captured!</string>
+    <string name="notification_persistent">DroidSteal is listening for sessions!</string>
     <string name="notification_text">Tap to open DroidSteal!</string>
 
     <string name="toast_wifi_lost">Wifi connection lost or changed. Stopped Listening!</string>

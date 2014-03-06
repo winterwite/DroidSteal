@@ -714,7 +714,7 @@ public class ListenActivity extends Activity implements OnClickListener, OnItemC
         String notificationText = auth != null ? auth.getUrl() : getString(R.string.notification_text);
 
         if (persistent) {
-            notificationTitle = "DroidSteal is listening for sessions";
+            notificationTitle = getString(R.string.notification_persistent);
         } else {
             notificationTitle = getString(R.string.notification_title);
         }
