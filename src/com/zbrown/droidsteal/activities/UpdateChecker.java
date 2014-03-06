@@ -1,6 +1,6 @@
 /*
  * UpdateChecker.java check for latest updates
- * (C) 2013 Zach Brown <Zbob75x@gmail.com>
+ * (C) 2013-2014 Zach Brown <Zbob75x@gmail.com>
  * 
  * This software was supported by the University of Trier
  * 

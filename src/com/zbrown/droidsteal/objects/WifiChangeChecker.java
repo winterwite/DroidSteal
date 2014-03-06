@@ -1,5 +1,5 @@
 /*    	WifiChangeChecker.java checks the wireless network for changes
-    	Copyright (C) 2013 Zach Brown <Zbob75x@gmail.com>
+    	Copyright (C) 2013-2014 Zach Brown <Zbob75x@gmail.com>
     	
     	This software was supported by the University of Trier 
 

@@ -1,6 +1,6 @@
 /*
- * SetupHelper.java does the initial copy of the binaries Copyright (C) 2013
- * Zach Brown <Zbob75x@gmail.com>
+ * SetupHelper.java does the initial copy of the binaries
+ * Copyright (C) 2013-2014 Zach Brown <Zbob75x@gmail.com>
  * 
  * This software was supported by the University of Trier
  * 
