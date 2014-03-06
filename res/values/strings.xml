@@ -63,6 +63,8 @@
     <string name="updatetext">There is an update available!\nWould you like to automatically download the new version?
     </string>
 
+    <string name="spoofingip_pref">Spoofing IP: </string>
+    <string name="notspoofingip">not spoofing any IP</string>
     <string name="changeurl">Change Address</string>
     <string name="customurl">Choose custom URL to load with hijacked cookies</string>
     <string name="back">Back</string>

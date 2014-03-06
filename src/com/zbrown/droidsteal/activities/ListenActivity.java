@@ -691,9 +691,9 @@ public class ListenActivity extends Activity implements OnClickListener, OnItemC
         }
         TextView tspoof = (TextView) findViewById(R.id.spoofaddress);
         if (isSpoofing()) {
-            tspoof.setText("Spoofing IP: " + gatewayIP);
+            tspoof.setText(getString(R.string.spoofingip_pref) + gatewayIP);
         } else {
-            tspoof.setText("not spoofing any IP");
+            tspoof.setText(getString(R.string.notspoofingip));
         }
     }
 
