@@ -2,10 +2,10 @@
 <resources>
     <string name="app_name">DroidSteal</string>
     <string name="license">DroidSteal comes with absolutely no warranty.\n\nYou use this software at your own risk.\nThe
-        developer is in no way responsible for any damages caused by DroidSteal or its usage.\nIt is only the user's
-        responsibility to check their region's laws in order to make sure that the usage of DroidSteal is permitted by law
-        in their country. In some areas, stealing someones identity might be prohibited by law.\n\nAlways think about
-        what you are doing! Stealing someones identity can cause real trouble! So basically, I am not responsible and
+        developer is in no way responsible for any damages caused by DroidSteal or its usage.\nIt is only the user\'s
+        responsibility to check their region\'s laws in order to make sure that the usage of DroidSteal is permitted by law
+        in their country. In some areas, stealing someone\'s identity might be prohibited by law.\n\nAlways think about
+        what you are doing! Stealing someone\'s identity can cause real trouble! So basically, I am not responsible and
         cannot be held accountable for how YOU choose to use this tool.\n
     </string>
     <string name="unrooted">YOUR DEVICE SEEMS TO BE UN-ROOTED\n\nDroidSteal can only run on rooted devices. So if the
