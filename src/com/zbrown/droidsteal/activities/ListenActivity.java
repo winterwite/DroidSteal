@@ -428,7 +428,7 @@ public class ListenActivity extends Activity implements OnClickListener, OnItemC
         menu.clear();
 
         MenuItem menu0 = menu.add(0, MENU_CLEAR_SESSIONLIST_ID, 0, getString(R.string.menu_clear_sessionlist));
-        menu0.setIcon(R.drawable.ic_action_cancel);
+        menu0.setIcon(R.drawable.ic_action_remove);
         menu0.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
 
         MenuItem menu1 = menu.add(0, MENU_WIFILIST_ID, 0, getString(R.string.menu_wifilist));
